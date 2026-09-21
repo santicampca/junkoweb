@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ivory text-navy font-body antialiased;
+  }
+
+  ::selection {
+    @apply bg-gold/30 text-navy;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-sans text-xs tracking-widest2 uppercase text-gold-dark;
+  }
+
+  .gold-rule {
+    @apply h-px w-16 bg-gold-line;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm border border-gold bg-gold px-8 py-3 font-sans text-sm uppercase tracking-widest2 text-navy transition-colors duration-300 hover:bg-transparent hover:text-gold;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm border border-ivory/40 px-8 py-3 font-sans text-sm uppercase tracking-widest2 text-ivory transition-colors duration-300 hover:border-gold hover:text-gold;
+  }
+
+  .btn-outline-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm border border-forest/30 px-8 py-3 font-sans text-sm uppercase tracking-widest2 text-forest transition-colors duration-300 hover:border-gold hover:text-gold-dark;
+  }
+
+  .container-club {
+    @apply mx-auto w-full max-w-content px-6 md:px-10;
+  }
+}
