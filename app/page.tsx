@@ -118,6 +118,7 @@ export default async function HomePage() {
           {
             label: "Torneos",
             text: "Encuentros que reúnen a los socios del club, dentro y fuera del campo.",
+            image: "/images/experience/torneos.jpg",
           },
           {
             label: "Comunidad",
