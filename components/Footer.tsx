@@ -18,7 +18,7 @@ export function Footer() {
   if (pathname?.startsWith("/admin")) return null;
 
   return (
-    <footer className="border-t border-gold/20 bg-navy text-ivory">
+    <footer className="border-t border-gold/20 bg-navy/55 text-ivory backdrop-blur-md">
       <div className="container-club grid gap-12 py-16 md:grid-cols-3">
         <div>
           <div className="flex items-center gap-3">

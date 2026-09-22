@@ -33,7 +33,7 @@ export function Navbar() {
   return (
     <header
       className={cx(
-        "sticky top-0 z-50 w-full bg-navy transition-shadow duration-500",
+        "sticky top-0 z-50 w-full border-b border-ivory/10 bg-navy/55 backdrop-blur-md transition-shadow duration-500",
         (scrolled || open) && "shadow-elegant"
       )}
     >

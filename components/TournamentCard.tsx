@@ -11,7 +11,7 @@ const statusLabel: Record<Tournament["status"], string> = {
 
 export function TournamentCard({ tournament }: { tournament: Tournament }) {
   return (
-    <article className="group flex flex-col overflow-hidden border border-forest/10 bg-white shadow-elegant">
+    <article className="glass-card group flex flex-col overflow-hidden">
       <div className="relative aspect-[4/3] w-full overflow-hidden">
         {tournament.image ? (
           <Image
@@ -31,11 +31,11 @@ export function TournamentCard({ tournament }: { tournament: Tournament }) {
         ) : null}
       </div>
       <div className="flex flex-1 flex-col gap-3 p-6">
-        <span className="eyebrow">{statusLabel[tournament.status]}</span>
-        <h3 className="font-heading text-xl text-forest">{tournament.title}</h3>
-        <p className="font-sans text-sm text-navy/60">{formatDate(tournament.date)}</p>
+        <span className="eyebrow text-gold">{statusLabel[tournament.status]}</span>
+        <h3 className="font-heading text-xl text-ivory">{tournament.title}</h3>
+        <p className="font-sans text-sm text-ivory/60">{formatDate(tournament.date)}</p>
         {tournament.description ? (
-          <p className="font-serif text-base leading-relaxed text-navy/70">
+          <p className="font-serif text-base leading-relaxed text-ivory/75">
             {tournament.description}
           </p>
         ) : null}

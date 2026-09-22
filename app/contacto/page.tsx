@@ -26,26 +26,26 @@ export default async function ContactPage() {
   };
 
   return (
-    <section className="panel-ivory py-24 sm:py-32">
-      <div className="container-club grid gap-16 md:grid-cols-2">
-        <div className="flex flex-col gap-8">
+    <section className="py-16 sm:py-24">
+      <div className="container-club grid gap-8 md:grid-cols-2">
+        <div className="glass-card flex flex-col gap-8 p-8 sm:p-12">
           <SectionTitle
             eyebrow="Contacto"
             title={content.title}
             description={content.text}
             align="left"
           />
-          <dl className="flex flex-col gap-4 font-sans text-sm text-navy/70">
+          <dl className="flex flex-col gap-4 font-sans text-sm text-ivory/75">
             <div>
-              <dt className="uppercase tracking-widest2 text-xs text-gold-dark">Dirección</dt>
+              <dt className="uppercase tracking-widest2 text-xs text-gold">Dirección</dt>
               <dd className="mt-1">{content.address}</dd>
             </div>
             <div>
-              <dt className="uppercase tracking-widest2 text-xs text-gold-dark">Teléfono</dt>
+              <dt className="uppercase tracking-widest2 text-xs text-gold">Teléfono</dt>
               <dd className="mt-1">{content.phone}</dd>
             </div>
             <div>
-              <dt className="uppercase tracking-widest2 text-xs text-gold-dark">Correo</dt>
+              <dt className="uppercase tracking-widest2 text-xs text-gold">Correo</dt>
               <dd className="mt-1">{content.email}</dd>
             </div>
           </dl>

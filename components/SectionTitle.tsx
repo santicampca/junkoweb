@@ -5,6 +5,7 @@ interface SectionTitleProps {
   title: string;
   description?: string;
   align?: "left" | "center";
+  /** Set false only for a title placed on the rare solid light panel. */
   light?: boolean;
 }
 
@@ -13,7 +14,7 @@ export function SectionTitle({
   title,
   description,
   align = "center",
-  light = false,
+  light = true,
 }: SectionTitleProps) {
   return (
     <div
@@ -28,7 +29,7 @@ export function SectionTitle({
       <h2
         className={cx(
           "font-display text-3xl uppercase tracking-wide sm:text-4xl",
-          light ? "text-ivory" : "text-forest"
+          light ? "text-ivory drop-shadow-sm" : "text-forest"
         )}
       >
         {title}
@@ -38,7 +39,7 @@ export function SectionTitle({
         <p
           className={cx(
             "max-w-2xl font-serif text-lg leading-relaxed",
-            light ? "text-ivory/75" : "text-navy/70"
+            light ? "text-ivory/80" : "text-navy/70"
           )}
         >
           {description}

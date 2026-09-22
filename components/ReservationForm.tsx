@@ -11,7 +11,7 @@ export function ReservationForm() {
   return (
     <form
       action={formAction}
-      className="mx-auto flex w-full max-w-2xl flex-col gap-6 border border-gold/20 bg-white p-8 shadow-elegant sm:p-12"
+      className="glass-card mx-auto flex w-full max-w-2xl flex-col gap-6 p-8 sm:p-12"
     >
       <div className="grid gap-6 sm:grid-cols-2">
         <Field
@@ -52,14 +52,10 @@ export function ReservationForm() {
       </div>
 
       <label className="flex flex-col gap-2">
-        <span className="font-sans text-xs uppercase tracking-widest2 text-navy/60">
+        <span className="font-sans text-xs uppercase tracking-widest2 text-ivory/60">
           Comentarios (opcional)
         </span>
-        <textarea
-          name="notes"
-          rows={4}
-          className="border border-forest/15 bg-transparent px-4 py-3 font-serif text-base text-navy outline-none transition-colors focus:border-gold"
-        />
+        <textarea name="notes" rows={4} className="glass-input" />
       </label>
 
       <button type="submit" disabled={pending} className="btn-primary disabled:opacity-60">
@@ -67,10 +63,10 @@ export function ReservationForm() {
       </button>
 
       {state.status === "success" ? (
-        <p className="font-serif text-base text-forest">{state.message}</p>
+        <p className="font-serif text-base text-gold">{state.message}</p>
       ) : null}
       {state.status === "error" && state.message ? (
-        <p className="font-serif text-base text-red-700">{state.message}</p>
+        <p className="font-serif text-base text-red-400">{state.message}</p>
       ) : null}
     </form>
   );
@@ -90,17 +86,17 @@ function Field({
 } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <label className="flex flex-col gap-2">
-      <span className="font-sans text-xs uppercase tracking-widest2 text-navy/60">
+      <span className="font-sans text-xs uppercase tracking-widest2 text-ivory/60">
         {label}
       </span>
       <input
         name={name}
         type={type}
         required={name !== "phone"}
-        className="border border-forest/15 bg-transparent px-4 py-3 font-serif text-base text-navy outline-none transition-colors focus:border-gold"
+        className="glass-input"
         {...rest}
       />
-      {error ? <span className="font-sans text-xs text-red-700">{error}</span> : null}
+      {error ? <span className="font-sans text-xs text-red-400">{error}</span> : null}
     </label>
   );
 }

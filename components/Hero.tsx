@@ -24,7 +24,7 @@ export function Hero({ title, subtitle, cta }: HeroProps) {
         className="container-club relative z-10 flex flex-col items-center gap-6 text-center"
       >
         <span className="eyebrow text-gold">Golf · Montaña · Tradición</span>
-        <h1 className="font-display text-4xl uppercase leading-tight tracking-wide text-ivory sm:text-6xl md:text-7xl">
+        <h1 className="font-display text-4xl uppercase leading-tight tracking-wide text-ivory drop-shadow-lg sm:text-6xl md:text-7xl">
           {title}
         </h1>
         <div className="gold-rule" />

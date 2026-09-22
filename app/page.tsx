@@ -62,95 +62,104 @@ export default async function HomePage() {
         cta={content.hero_cta}
       />
 
-      <section className="panel-ivory py-24 sm:py-32">
-        <div className="container-club flex flex-col items-center gap-8">
-          <SectionTitle
-            eyebrow="Bienvenido"
-            title={content.intro_title}
-            description={content.intro_text}
-          />
+      <section className="py-16 sm:py-24">
+        <div className="container-club">
+          <div className="glass-card mx-auto flex max-w-3xl flex-col items-center gap-6 p-8 text-center sm:p-12">
+            <SectionTitle
+              eyebrow="Bienvenido"
+              title={content.intro_title}
+              description={content.intro_text}
+            />
+          </div>
         </div>
       </section>
 
-      <section className="panel-forest py-24 text-ivory sm:py-32">
-        <div className="container-club flex flex-col items-center gap-6 text-center">
-          <span className="eyebrow text-gold">Experiencia</span>
-          <h2 className="font-display text-3xl uppercase tracking-wide sm:text-4xl">
-            {content.experience_title}
-          </h2>
-          <div className="gold-rule" />
-          <p className="max-w-2xl font-serif text-lg leading-relaxed text-ivory/80">
-            {content.experience_text}
-          </p>
+      <section className="py-8 sm:py-12">
+        <div className="container-club grid gap-6 md:grid-cols-2">
+          <div className="glass-card flex flex-col items-center gap-6 p-8 text-center sm:p-12">
+            <span className="eyebrow text-gold">Experiencia</span>
+            <h2 className="font-display text-3xl uppercase tracking-wide sm:text-4xl">
+              {content.experience_title}
+            </h2>
+            <div className="gold-rule" />
+            <p className="font-serif text-lg leading-relaxed text-ivory/80">
+              {content.experience_text}
+            </p>
+          </div>
+
+          <div className="glass-card flex flex-col items-center gap-6 p-8 text-center sm:p-12">
+            <span className="eyebrow text-gold">El Club</span>
+            <h2 className="font-display text-3xl uppercase tracking-wide sm:text-4xl">
+              {content.club_title}
+            </h2>
+            <div className="gold-rule" />
+            <p className="font-serif text-lg leading-relaxed text-ivory/80">
+              {content.club_text}
+            </p>
+            <Link href="/club" className="btn-outline w-fit">
+              Conocer el club
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section className="panel-ivory py-24 sm:py-32">
-        <div className="container-club flex flex-col items-center gap-6 text-center">
-          <span className="eyebrow">El Club</span>
-          <h2 className="font-display text-3xl uppercase tracking-wide text-forest sm:text-4xl">
-            {content.club_title}
-          </h2>
-          <div className="gold-rule" />
-          <p className="max-w-2xl font-serif text-lg leading-relaxed text-navy/70">
-            {content.club_text}
-          </p>
-          <Link href="/club" className="btn-outline-dark w-fit">
-            Conocer el club
-          </Link>
-        </div>
-      </section>
-
-      <section className="panel-navy py-24 text-ivory sm:py-32">
-        <div className="container-club flex flex-col items-center gap-12">
-          <SectionTitle
-            eyebrow="Membresías"
-            title="Forme parte del club"
-            description="Distintas modalidades de membresía diseñadas para socios individuales, familias y empresas."
-            light
-          />
-          <Link href="/membresias" className="btn-outline w-fit">
-            Ver membresías
-          </Link>
+      <section className="py-8 sm:py-12">
+        <div className="container-club">
+          <div className="glass-card flex flex-col items-center gap-8 p-8 text-center sm:p-12">
+            <SectionTitle
+              eyebrow="Membresías"
+              title="Forme parte del club"
+              description="Distintas modalidades de membresía diseñadas para socios individuales, familias y empresas."
+            />
+            <Link href="/membresias" className="btn-outline w-fit">
+              Ver membresías
+            </Link>
+          </div>
         </div>
       </section>
 
       {tournament ? (
-        <section className="panel-ivory py-24 sm:py-32">
-          <div className="container-club flex flex-col items-center gap-12">
-            <SectionTitle eyebrow="Agenda" title="Próximo torneo" />
-            <div className="w-full max-w-md">
-              <TournamentCard tournament={tournament} />
+        <section className="py-8 sm:py-12">
+          <div className="container-club">
+            <div className="glass-card flex flex-col items-center gap-8 p-8 sm:p-12">
+              <SectionTitle eyebrow="Agenda" title="Próximo torneo" />
+              <div className="w-full max-w-md">
+                <TournamentCard tournament={tournament} />
+              </div>
+              <Link href="/torneos" className="btn-outline w-fit">
+                Ver todos los torneos
+              </Link>
             </div>
-            <Link href="/torneos" className="btn-outline-dark w-fit">
-              Ver todos los torneos
-            </Link>
           </div>
         </section>
       ) : null}
 
-      <section className="panel-ivory py-24 sm:py-32">
-        <div className="container-club flex flex-col items-center gap-12">
-          <SectionTitle eyebrow="Galería" title="Un vistazo al club" />
-          <Gallery items={gallery ?? []} className="w-full" />
-          <Link href="/galeria" className="btn-outline-dark w-fit">
-            Ver galería completa
-          </Link>
+      <section className="py-8 sm:py-12">
+        <div className="container-club">
+          <div className="glass-card flex flex-col items-center gap-8 p-8 sm:p-12">
+            <SectionTitle eyebrow="Galería" title="Un vistazo al club" />
+            <Gallery items={gallery ?? []} className="w-full" />
+            <Link href="/galeria" className="btn-outline w-fit">
+              Ver galería completa
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section className="relative overflow-hidden panel-forest py-28 text-center text-ivory">
-        <div className="container-club relative z-10 flex flex-col items-center gap-6">
-          <h2 className="font-display text-3xl uppercase tracking-wide sm:text-4xl">
-            {content.cta_final_title}
-          </h2>
-          <div className="gold-rule" />
-          <p className="max-w-xl font-serif text-lg text-ivory/80">
-            {content.cta_final_text}
-          </p>
-          <Link href="/reservas" className="btn-primary">
-            Reserva ya
-          </Link>
+      <section className="py-16 sm:py-24">
+        <div className="container-club">
+          <div className="glass-card mx-auto flex max-w-2xl flex-col items-center gap-6 p-10 text-center sm:p-14">
+            <h2 className="font-display text-3xl uppercase tracking-wide sm:text-4xl">
+              {content.cta_final_title}
+            </h2>
+            <div className="gold-rule" />
+            <p className="max-w-xl font-serif text-lg text-ivory/80">
+              {content.cta_final_text}
+            </p>
+            <Link href="/reservas" className="btn-primary">
+              Reserva ya
+            </Link>
+          </div>
         </div>
       </section>
     </>

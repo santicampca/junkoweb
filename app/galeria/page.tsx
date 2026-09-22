@@ -26,8 +26,8 @@ export default async function GalleryPage() {
   const items = (data ?? []) as GalleryItem[];
 
   return (
-    <section className="panel-ivory py-24 sm:py-32">
-      <div className="container-club flex flex-col gap-20">
+    <section className="py-16 sm:py-24">
+      <div className="container-club flex flex-col gap-16">
         <SectionTitle
           eyebrow="Galería"
           title="Un vistazo al club"
@@ -38,7 +38,7 @@ export default async function GalleryPage() {
           const categoryItems = items.filter((item) => item.category === key);
           return (
             <div key={key} className="flex flex-col gap-8">
-              <h3 className="font-heading text-2xl text-forest">{label}</h3>
+              <h3 className="font-heading text-2xl text-ivory">{label}</h3>
               <Gallery items={categoryItems} emptyLabel={label} />
             </div>
           );

@@ -21,8 +21,8 @@ export default async function TournamentsPage() {
   const past = tournaments.filter((t) => t.status !== "upcoming");
 
   return (
-    <section className="panel-ivory py-24 sm:py-32">
-      <div className="container-club flex flex-col gap-20">
+    <section className="py-16 sm:py-24">
+      <div className="container-club flex flex-col gap-16">
         <SectionTitle
           eyebrow="Calendario"
           title="Torneos"
@@ -31,7 +31,7 @@ export default async function TournamentsPage() {
 
         {upcoming.length > 0 ? (
           <div className="flex flex-col gap-8">
-            <h3 className="font-heading text-2xl text-forest">Próximos</h3>
+            <h3 className="font-heading text-2xl text-ivory">Próximos</h3>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {upcoming.map((t) => (
                 <TournamentCard key={t.id} tournament={t} />
@@ -42,7 +42,7 @@ export default async function TournamentsPage() {
 
         {past.length > 0 ? (
           <div className="flex flex-col gap-8">
-            <h3 className="font-heading text-2xl text-forest">Anteriores</h3>
+            <h3 className="font-heading text-2xl text-ivory">Anteriores</h3>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {past.map((t) => (
                 <TournamentCard key={t.id} tournament={t} />
@@ -52,9 +52,11 @@ export default async function TournamentsPage() {
         ) : null}
 
         {tournaments.length === 0 ? (
-          <p className="text-center font-serif text-lg text-navy/60">
-            Próximamente anunciaremos nuestro calendario de torneos.
-          </p>
+          <div className="glass-card p-8 text-center">
+            <p className="font-serif text-lg text-ivory/80">
+              Próximamente anunciaremos nuestro calendario de torneos.
+            </p>
+          </div>
         ) : null}
       </div>
     </section>
