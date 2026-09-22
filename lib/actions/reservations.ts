@@ -7,9 +7,9 @@ import type { ReservationStatus } from "@/lib/types";
 
 const reservationSchema = z.object({
   name: z.string().trim().min(2, "Ingrese su nombre completo").max(120),
-  email: z.string().trim().email("Ingrese un correo electrónico válido"),
-  phone: z.string().trim().max(30).optional().or(z.literal("")),
+  phone: z.string().trim().min(7, "Ingrese un teléfono válido").max(30),
   date: z.string().trim().min(1, "Seleccione una fecha"),
+  preferredTime: z.string().trim().max(20).optional().or(z.literal("")),
   players: z.coerce.number().int().min(1).max(12),
   notes: z.string().trim().max(500).optional().or(z.literal("")),
 });
@@ -26,9 +26,9 @@ export async function submitReservation(
 ): Promise<ReservationFormState> {
   const parsed = reservationSchema.safeParse({
     name: formData.get("name"),
-    email: formData.get("email"),
     phone: formData.get("phone"),
     date: formData.get("date"),
+    preferredTime: formData.get("preferredTime"),
     players: formData.get("players"),
     notes: formData.get("notes"),
   });
@@ -48,9 +48,9 @@ export async function submitReservation(
   const supabase = await createClient();
   const { error } = await supabase.from("reservations").insert({
     name: parsed.data.name,
-    email: parsed.data.email,
-    phone: parsed.data.phone || null,
+    phone: parsed.data.phone,
     date: parsed.data.date,
+    preferred_time: parsed.data.preferredTime || null,
     players: parsed.data.players,
     notes: parsed.data.notes || null,
   });
