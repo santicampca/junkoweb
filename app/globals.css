@@ -42,15 +42,16 @@
   }
 
   /*
-   * Floating glass panel over the fixed site background photo — the
-   * only way content gets a background now (sections themselves stay
-   * transparent so the photo shows through around/between panels).
+   * Solid-ish panel used only where content genuinely needs a contained
+   * background to stay legible (forms, data cards) — deliberately not a
+   * blurred/translucent "glass" surface, and not used for plain narrative
+   * text, which sits directly on the fixed background photo instead.
    */
   .glass-card {
-    @apply rounded-2xl border border-ivory/10 bg-forest/55 shadow-elegant backdrop-blur-md;
+    @apply rounded-md border border-ivory/10 bg-navy/80 shadow-elegant;
   }
 
   .glass-input {
-    @apply rounded-lg border border-ivory/20 bg-navy/40 px-4 py-3 font-serif text-base text-ivory outline-none backdrop-blur-sm transition-colors placeholder:text-ivory/40 focus:border-gold;
+    @apply rounded-md border border-ivory/20 bg-navy/50 px-4 py-3 font-serif text-base text-ivory outline-none transition-colors placeholder:text-ivory/40 focus:border-gold;
   }
 }

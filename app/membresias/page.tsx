@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SectionTitle } from "@/components/SectionTitle";
 import { MembershipCard } from "@/components/MembershipCard";
 import { createClient } from "@/lib/supabase/server";
@@ -6,7 +7,7 @@ import { createClient } from "@/lib/supabase/server";
 export const metadata: Metadata = {
   title: "Membresías",
   description:
-    "Descubra los distintos tipos de membresía de Junko Golf Club: individual, familiar, corporativa y honoraria.",
+    "Conozca las modalidades de membresía de Junko Golf Club, un club de golf de montaña en El Junquito, Vargas.",
 };
 
 export default async function MembershipsPage() {
@@ -22,8 +23,8 @@ export default async function MembershipsPage() {
         <div className="glass-card p-8 sm:p-12">
           <SectionTitle
             eyebrow="Membresías"
-            title="Forme parte del club"
-            description="Ofrecemos distintas modalidades de membresía para adaptarse a cada etapa de vida de nuestros socios. Contáctenos para conocer requisitos y tarifas vigentes."
+            title="Formar parte del Junko"
+            description="Ser socio de El Junko es tener un lugar propio en la montaña. Estas son nuestras modalidades de membresía; contáctenos para conocer requisitos y condiciones vigentes."
           />
         </div>
 
@@ -31,6 +32,15 @@ export default async function MembershipsPage() {
           {(memberships ?? []).map((membership) => (
             <MembershipCard key={membership.id} membership={membership} />
           ))}
+        </div>
+
+        <div className="flex flex-col items-center gap-4 text-center">
+          <p className="font-serif text-base text-ivory/70">
+            ¿Tiene preguntas sobre membresías?
+          </p>
+          <Link href="/contacto" className="btn-outline w-fit">
+            Escríbanos
+          </Link>
         </div>
       </div>
     </section>

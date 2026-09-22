@@ -28,8 +28,11 @@ export function Footer() {
             </p>
           </div>
           <p className="mt-4 max-w-xs font-serif text-sm leading-relaxed text-ivory/60">
-            Golf, montaña y tradición en un entorno de exclusividad discreta.
+            Golf entre montañas en El Junquito, Vargas, desde 1948.
           </p>
+          <Link href="/reservas" className="btn-outline mt-6 w-fit">
+            Reservar
+          </Link>
         </div>
 
         <div>

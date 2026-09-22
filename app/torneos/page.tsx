@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SectionTitle } from "@/components/SectionTitle";
 import { TournamentCard } from "@/components/TournamentCard";
 import { createClient } from "@/lib/supabase/server";
@@ -6,7 +7,7 @@ import type { Tournament } from "@/lib/types";
 
 export const metadata: Metadata = {
   title: "Torneos",
-  description: "Calendario de torneos y competencias de Junko Golf Club.",
+  description: "Calendario de torneos de Junko Golf Club, club de golf de montaña en El Junquito, Vargas.",
 };
 
 export default async function TournamentsPage() {
@@ -25,13 +26,15 @@ export default async function TournamentsPage() {
       <div className="container-club flex flex-col gap-16">
         <SectionTitle
           eyebrow="Calendario"
-          title="Torneos"
-          description="Descubra nuestros próximos torneos y revise los resultados de ediciones anteriores."
+          title="Torneos en El Junko"
+          description="Nuestro calendario de competencias, y los resultados de ediciones anteriores."
         />
 
         {upcoming.length > 0 ? (
           <div className="flex flex-col gap-8">
-            <h3 className="font-heading text-2xl text-ivory">Próximos</h3>
+            <h3 className="font-display text-xl uppercase tracking-widest2 text-gold">
+              Próximo en El Junko
+            </h3>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {upcoming.map((t) => (
                 <TournamentCard key={t.id} tournament={t} />
@@ -42,7 +45,9 @@ export default async function TournamentsPage() {
 
         {past.length > 0 ? (
           <div className="flex flex-col gap-8">
-            <h3 className="font-heading text-2xl text-ivory">Anteriores</h3>
+            <h3 className="font-display text-xl uppercase tracking-widest2 text-gold">
+              Torneos anteriores
+            </h3>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {past.map((t) => (
                 <TournamentCard key={t.id} tournament={t} />
@@ -58,6 +63,15 @@ export default async function TournamentsPage() {
             </p>
           </div>
         ) : null}
+
+        <div className="flex flex-col items-center gap-4 pt-4 text-center">
+          <p className="font-serif text-base text-ivory/70">
+            ¿Quiere jugar antes del próximo torneo?
+          </p>
+          <Link href="/reservas" className="btn-outline w-fit">
+            Reservar una ronda
+          </Link>
+        </div>
       </div>
     </section>
   );

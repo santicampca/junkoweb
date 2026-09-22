@@ -21,7 +21,10 @@ export type GalleryCategory =
   | "gallery"
   | "club"
   | "tournaments"
-  | "memberships";
+  | "memberships"
+  | "people"
+  | "mountain"
+  | "moments";
 
 export type GalleryItem = Omit<
   Database["public"]["Tables"]["gallery"]["Row"],

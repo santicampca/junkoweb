@@ -7,7 +7,16 @@ import { createClient } from "@/lib/supabase/server";
 
 const gallerySchema = z.object({
   image: z.string().trim().min(1, "La imagen es requerida").max(500),
-  category: z.enum(["hero", "gallery", "club", "tournaments", "memberships"]),
+  category: z.enum([
+    "hero",
+    "gallery",
+    "club",
+    "tournaments",
+    "memberships",
+    "people",
+    "mountain",
+    "moments",
+  ]),
   order: z.coerce.number().int().min(0).default(0),
   alt: z.string().trim().max(200).optional().or(z.literal("")),
 });
