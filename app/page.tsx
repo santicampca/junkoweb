@@ -26,7 +26,7 @@ const homeDefaults = {
   intro_text: "Escápate de la ciudad. Toma tus palos. Ven al Junko.",
   location_title: "Golf entre montañas",
   location_text:
-    "El club está en El Junquito, estado Vargas, rodeado de montaña. Un entorno natural que pocos campos de golf pueden ofrecer, y que forma parte de la experiencia tanto como el propio juego.",
+    "El club está en El Junquito, estado La Guaira, rodeado de montaña. Un entorno natural que pocos campos de golf pueden ofrecer, y que forma parte de la experiencia tanto como el propio juego.",
   experience_text:
     "Un recorrido que aprovecha el terreno de montaña tal como es, sin forzarlo. Cada hoyo tiene su propio carácter, marcado por la vegetación y el desnivel natural del terreno.",
   game_text:

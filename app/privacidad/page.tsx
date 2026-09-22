@@ -14,8 +14,8 @@ export default function PrivacyPage() {
         <h2>1. Responsable del tratamiento</h2>
         <p>
           Razón social: [PENDIENTE DE CONFIRMAR]. RIF: [PENDIENTE DE CONFIRMAR]. Dirección:
-          [PENDIENTE DE CONFIRMAR]. Correo de contacto para asuntos de privacidad:
-          [PENDIENTE DE CONFIRMAR].
+          Carretera El Junquito, Km. 19, El Junko, estado La Guaira, Venezuela. Correo de contacto
+          para asuntos de privacidad: [PENDIENTE DE CONFIRMAR].
         </p>
       </div>
 

@@ -35,7 +35,7 @@ export function Footer() {
             </p>
           </div>
           <p className="mt-4 max-w-xs font-serif text-sm leading-relaxed text-ivory/60">
-            Golf entre montañas en El Junquito, Vargas, desde 1948.
+            Golf entre montañas en El Junquito, La Guaira, desde 1948.
           </p>
           <Link href="/reservas" className="btn-outline mt-6 w-fit">
             Reservar
@@ -61,8 +61,7 @@ export function Footer() {
         <div>
           <p className="eyebrow text-ivory/50">Contacto</p>
           <ul className="mt-4 flex flex-col gap-2 font-sans text-sm text-ivory/70">
-            <li>info@junkogolfclub.com</li>
-            <li>Por confirmar</li>
+            <li>[PENDIENTE DE CONFIRMAR CON EL CLUB]</li>
           </ul>
         </div>
       </div>

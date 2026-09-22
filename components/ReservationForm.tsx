@@ -6,7 +6,7 @@ import { submitReservation, type ReservationFormState } from "@/lib/actions/rese
 const initialState: ReservationFormState = { status: "idle" };
 
 interface ReservationFormProps {
-  /** Club WhatsApp number from admin-editable content (may be the "Por confirmar" placeholder until set). */
+  /** Club WhatsApp number from admin-editable content (may still be the "[PENDIENTE DE CONFIRMAR CON EL CLUB]" placeholder until set). */
   whatsappPhone?: string;
 }
 

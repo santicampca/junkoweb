@@ -1,11 +1,11 @@
 import { getSiteUrl } from "@/lib/site-url";
 
 /**
- * GolfClub JSON-LD for the homepage. Deliberately includes only facts
- * already stated as established truth elsewhere on the site (name,
- * founding year, general location) — no phone, street address,
- * coordinates, price range, opening hours, or ratings, since none of
- * those are confirmed. An unfilled field is worse than an absent one.
+ * GolfClub JSON-LD for the homepage. Name, founding year, and address are
+ * sourced from the Federación Venezolana de Golf's own listing for the
+ * club. Deliberately omits phone, coordinates, price range, opening
+ * hours, and ratings, since none of those are confirmed — an unfilled
+ * field is worse than an absent one.
  */
 export function StructuredData() {
   const siteUrl = getSiteUrl();
@@ -16,12 +16,13 @@ export function StructuredData() {
     name: "Junko Golf Club",
     url: siteUrl,
     description:
-      "Junko Golf Club, fundado en 1948, es un club de golf en las montañas de El Junquito, estado Vargas, Venezuela.",
+      "Junko Golf Club, fundado en 1948, es un club de golf en las montañas de El Junquito, estado La Guaira, Venezuela.",
     foundingDate: "1948",
     address: {
       "@type": "PostalAddress",
+      streetAddress: "Carretera El Junquito, Km. 19, El Junko",
       addressLocality: "El Junquito",
-      addressRegion: "Vargas",
+      addressRegion: "La Guaira",
       addressCountry: "VE",
     },
   };

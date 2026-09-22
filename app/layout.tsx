@@ -52,15 +52,15 @@ const siteUrl = getSiteUrl();
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Junko Golf Club — Golf entre montañas en El Junquito, Vargas",
+    default: "Junko Golf Club — Golf entre montañas en El Junquito, La Guaira",
     template: "%s | Junko Golf Club",
   },
   description:
-    "Junko Golf Club, fundado en 1948, es un club de golf en las montañas de El Junquito, estado Vargas. Reservas, membresías y torneos.",
+    "Junko Golf Club, fundado en 1948, es un club de golf en las montañas de El Junquito, estado La Guaira. Reservas, membresías y torneos.",
   keywords: [
     "Junko Golf Club",
     "club de golf El Junquito",
-    "golf Vargas Venezuela",
+    "golf La Guaira Venezuela",
     "campo de golf de montaña",
     "membresías de golf",
     "torneos de golf",
@@ -69,16 +69,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Junko Golf Club",
-    title: "Junko Golf Club — Golf entre montañas en El Junquito, Vargas",
+    title: "Junko Golf Club — Golf entre montañas en El Junquito, La Guaira",
     description:
-      "Un club de golf de montaña en El Junquito, Vargas, con historia desde 1948.",
+      "Un club de golf de montaña en El Junquito, La Guaira, con historia desde 1948.",
     url: siteUrl,
     locale: "es_ES",
   },
   twitter: {
     card: "summary_large_image",
     title: "Junko Golf Club",
-    description: "Golf entre montañas en El Junquito, Vargas, desde 1948.",
+    description: "Golf entre montañas en El Junquito, La Guaira, desde 1948.",
   },
   robots: {
     index: true,

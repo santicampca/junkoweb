@@ -16,7 +16,7 @@ export default function LegalNoticePage() {
           <li>Denominación: Junko Golf Club (nombre comercial; fundado en 1948).</li>
           <li>Razón social: [PENDIENTE DE CONFIRMAR]</li>
           <li>RIF: [PENDIENTE DE CONFIRMAR]</li>
-          <li>Domicilio: El Junquito, estado Vargas, Venezuela. Dirección exacta: [PENDIENTE DE CONFIRMAR]</li>
+          <li>Domicilio: Carretera El Junquito, Km. 19, El Junko, El Junquito, estado La Guaira, Venezuela.</li>
           <li>Representante: [PENDIENTE DE CONFIRMAR]</li>
           <li>Correo de contacto: [PENDIENTE DE CONFIRMAR]</li>
           <li>Teléfono: [PENDIENTE DE CONFIRMAR]</li>

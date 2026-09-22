@@ -21,9 +21,9 @@ export default async function ContactPage() {
   const content = (data?.content as Page["content"]) ?? {
     title: "Hablemos",
     text: "",
-    address: "Por confirmar",
-    phone: "Por confirmar",
-    email: "info@junkogolfclub.com",
+    address: "Carretera El Junquito, Km. 19, El Junko, estado La Guaira, Venezuela",
+    phone: "[PENDIENTE DE CONFIRMAR CON EL CLUB]",
+    email: "[PENDIENTE DE CONFIRMAR CON EL CLUB]",
   };
 
   return (

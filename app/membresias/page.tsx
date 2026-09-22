@@ -6,7 +6,7 @@ import { createClient } from "@/lib/supabase/server";
 export const metadata: Metadata = {
   title: "Membresías",
   description:
-    "Conozca las modalidades de membresía de Junko Golf Club, un club de golf de montaña en El Junquito, Vargas.",
+    "Conozca las modalidades de membresía de Junko Golf Club, un club de golf de montaña en El Junquito, La Guaira.",
   alternates: { canonical: "/membresias" },
 };
 

@@ -8,7 +8,7 @@ import type { Page } from "@/lib/types";
 export const metadata: Metadata = {
   title: "El Club",
   description:
-    "Conozca Junko Golf Club: historia desde 1948, instalaciones y el entorno de montaña de El Junquito, Vargas.",
+    "Conozca Junko Golf Club: historia desde 1948, instalaciones y el entorno de montaña de El Junquito, La Guaira.",
   alternates: { canonical: "/club" },
 };
 

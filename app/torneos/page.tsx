@@ -7,7 +7,7 @@ import type { Tournament } from "@/lib/types";
 
 export const metadata: Metadata = {
   title: "Torneos",
-  description: "Calendario de torneos de Junko Golf Club, club de golf de montaña en El Junquito, Vargas.",
+  description: "Calendario de torneos de Junko Golf Club, club de golf de montaña en El Junquito, La Guaira.",
   alternates: { canonical: "/torneos" },
 };
 
@@ -29,7 +29,7 @@ export default async function TournamentsPage() {
           as="h1"
           eyebrow="Calendario"
           title="Torneos en El Junko"
-          description="Nuestro calendario de competencias, y los resultados de ediciones anteriores."
+          description="Junko Golf Club ha sido sede de competencias organizadas o avaladas por la Federación Venezolana de Golf. Aquí, nuestro calendario y los resultados de ediciones anteriores."
         />
 
         {upcoming.length > 0 ? (
