@@ -34,7 +34,8 @@ export function NextTournamentFeature({ tournament }: NextTournamentFeatureProps
               src={tournament.image}
               alt={tournament.title}
               fill
-              sizes="(max-width: 768px) 100vw, 60vw"
+              quality={90}
+              sizes="(max-width: 768px) 100vw, 696px"
               className="object-cover"
             />
           ) : (

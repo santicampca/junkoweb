@@ -33,6 +33,7 @@ export function Gallery({ items, emptyLabel, className, editorial }: GalleryProp
                 src={galleryItem.image}
                 alt={galleryItem.alt ?? "Junko Golf Club"}
                 fill
+                quality={90}
                 sizes="(max-width: 768px) 50vw, 33vw"
                 className="object-cover transition-transform duration-700 hover:scale-105"
               />
