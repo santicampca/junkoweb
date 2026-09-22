@@ -60,7 +60,8 @@ export function ExperienceShowcase({ eyebrow, title, concepts }: ExperienceShowc
                     src={current.image}
                     alt={current.label}
                     fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    quality={90}
+                    sizes="(max-width: 768px) 100vw, 572px"
                     className="object-cover"
                   />
                 ) : (
@@ -116,6 +117,7 @@ export function ExperienceShowcase({ eyebrow, title, concepts }: ExperienceShowc
                     src={concept.image}
                     alt={concept.label}
                     fill
+                    quality={90}
                     sizes="100vw"
                     className="object-cover"
                   />

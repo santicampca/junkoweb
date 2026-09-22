@@ -18,6 +18,11 @@ const supabaseHostname = getSupabaseHostname();
 
 const nextConfig: NextConfig = {
   images: {
+    // Next's default optimizer quality (75) visibly softened our real
+    // photos even though the source files were exported at quality 92 —
+    // this allowlists the higher value so <Image quality={90}> is honored
+    // for the hero background and featured photos.
+    qualities: [75, 90],
     remotePatterns: [
       ...(supabaseHostname
         ? [
