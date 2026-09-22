@@ -11,6 +11,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SiteBackground } from "@/components/SiteBackground";
 import { MobileReserveBar } from "@/components/MobileReserveBar";
+import { MotionProvider } from "@/components/MotionProvider";
 import { getSiteUrl } from "@/lib/site-url";
 
 const cinzel = Cinzel({
@@ -93,11 +94,13 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${cinzel.variable} ${cormorant.variable} ${playfair.variable} ${inter.variable} ${jakarta.variable}`}>
       <body>
-        <SiteBackground />
-        <Navbar />
-        <main className="pb-16 lg:pb-0">{children}</main>
-        <Footer />
-        <MobileReserveBar />
+        <MotionProvider>
+          <SiteBackground />
+          <Navbar />
+          <main className="pb-16 lg:pb-0">{children}</main>
+          <Footer />
+          <MobileReserveBar />
+        </MotionProvider>
       </body>
     </html>
   );

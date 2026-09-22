@@ -7,6 +7,7 @@ import { cx } from "@/lib/utils";
 const links = [
   { href: "/admin/dashboard", label: "Resumen" },
   { href: "/admin/dashboard/reservas", label: "Reservas" },
+  { href: "/admin/dashboard/contactos", label: "Contactos" },
   { href: "/admin/dashboard/torneos", label: "Torneos" },
   { href: "/admin/dashboard/galeria", label: "Galería" },
   { href: "/admin/dashboard/membresias", label: "Membresías" },

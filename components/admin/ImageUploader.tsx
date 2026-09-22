@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Image from "next/image";
 import { createClient } from "@/lib/supabase/client";
 
 interface ImageUploaderProps {
@@ -72,7 +73,9 @@ export function ImageUploader({
       {error ? <p className="font-sans text-xs text-red-700">{error}</p> : null}
       {url ? (
         <div className="flex items-center gap-3">
-          <img src={url} alt="Vista previa" className="h-16 w-16 rounded-sm object-cover" />
+          <div className="relative h-16 w-16 overflow-hidden rounded-sm">
+            <Image src={url} alt="Vista previa" fill sizes="64px" className="object-cover" />
+          </div>
           <span className="max-w-xs truncate font-sans text-xs text-navy/50">{url}</span>
         </div>
       ) : null}

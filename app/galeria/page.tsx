@@ -7,6 +7,7 @@ import type { GalleryCategory, GalleryItem } from "@/lib/types";
 export const metadata: Metadata = {
   title: "Galería",
   description: "Explore imágenes del club, el recorrido y nuestros torneos.",
+  alternates: { canonical: "/galeria" },
 };
 
 const categories: { key: GalleryCategory; label: string }[] = [

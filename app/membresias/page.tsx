@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Membresías",
   description:
     "Conozca las modalidades de membresía de Junko Golf Club, un club de golf de montaña en El Junquito, Vargas.",
+  alternates: { canonical: "/membresias" },
 };
 
 export default async function MembershipsPage() {

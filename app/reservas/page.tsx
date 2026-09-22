@@ -7,6 +7,7 @@ import type { Page } from "@/lib/types";
 export const metadata: Metadata = {
   title: "Reservas",
   description: "Reserve su próxima ronda de golf en Junko Golf Club.",
+  alternates: { canonical: "/reservas" },
 };
 
 export default async function ReservationsPage() {

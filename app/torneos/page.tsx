@@ -8,6 +8,7 @@ import type { Tournament } from "@/lib/types";
 export const metadata: Metadata = {
   title: "Torneos",
   description: "Calendario de torneos de Junko Golf Club, club de golf de montaña en El Junquito, Vargas.",
+  alternates: { canonical: "/torneos" },
 };
 
 export default async function TournamentsPage() {

@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { AdminTable } from "@/components/admin/AdminTable";
+import { AdminEmptyState } from "@/components/admin/AdminStates";
+import { ConfirmSubmitButton } from "@/components/admin/ConfirmSubmitButton";
 import { createClient } from "@/lib/supabase/server";
 import { deleteMembership } from "@/lib/actions/memberships";
 
@@ -45,12 +47,12 @@ export default async function AdminMembershipsPage() {
                   await deleteMembership(m.id);
                 }}
               >
-                <button
-                  type="submit"
+                <ConfirmSubmitButton
+                  confirmMessage={`¿Eliminar la membresía "${m.title}"? Esta acción no se puede deshacer.`}
                   className="font-sans text-xs uppercase tracking-widest2 text-red-700 hover:underline"
                 >
                   Eliminar
-                </button>
+                </ConfirmSubmitButton>
               </form>
             </td>
           </tr>
@@ -58,7 +60,7 @@ export default async function AdminMembershipsPage() {
       </AdminTable>
 
       {(memberships ?? []).length === 0 ? (
-        <p className="font-sans text-sm text-navy/40">Aún no hay membresías creadas.</p>
+        <AdminEmptyState message="Aún no hay membresías creadas." />
       ) : null}
     </div>
   );

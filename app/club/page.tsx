@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "El Club",
   description:
     "Conozca Junko Golf Club: historia desde 1948, instalaciones y el entorno de montaña de El Junquito, Vargas.",
+  alternates: { canonical: "/club" },
 };
 
 export default async function ClubPage() {

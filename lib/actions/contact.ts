@@ -3,6 +3,7 @@
 import { z } from "zod";
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
+import type { ContactStatus } from "@/lib/types";
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Ingrese su nombre completo").max(120),
@@ -64,6 +65,17 @@ export async function markMessageRead(id: string, read: boolean) {
     .eq("id", id);
   if (error) throw new Error(error.message);
   revalidatePath("/admin/dashboard");
+}
+
+export async function updateContactStatus(id: string, status: ContactStatus) {
+  const supabase = await createClient();
+  const { error } = await supabase
+    .from("contact_messages")
+    .update({ status, read: true })
+    .eq("id", id);
+  if (error) throw new Error(error.message);
+  revalidatePath("/admin/dashboard");
+  revalidatePath("/admin/dashboard/contactos");
 }
 
 export async function deleteContactMessage(id: string) {

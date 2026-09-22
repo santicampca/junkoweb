@@ -7,6 +7,7 @@ import type { Page } from "@/lib/types";
 export const metadata: Metadata = {
   title: "Contacto",
   description: "Hablemos: escriba a Junko Golf Club para reservas, membresías o cualquier consulta.",
+  alternates: { canonical: "/contacto" },
 };
 
 export default async function ContactPage() {
