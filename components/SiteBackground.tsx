@@ -18,7 +18,7 @@ export function SiteBackground() {
   return (
     <div className="fixed inset-0 -z-10">
       <Image
-        src="/images/hero/fairway.png"
+        src="/images/hero/fairway.jpg"
         alt=""
         fill
         priority
