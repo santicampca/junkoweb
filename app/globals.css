@@ -54,4 +54,34 @@
   .glass-input {
     @apply rounded-md border border-ivory/20 bg-navy/50 px-4 py-3 font-serif text-base text-ivory outline-none transition-colors placeholder:text-ivory/40 focus:border-gold;
   }
+
+  /*
+   * Magazine-style gallery mosaic: a fixed rhythm of tile sizes that
+   * repeats every 6 items, instead of a uniform grid of same-size
+   * thumbnails. Mobile stays a simple 2-col grid (defined inline in
+   * Gallery.tsx) — this only kicks in from `sm:` up.
+   */
+  .gallery-mosaic {
+    @apply grid grid-cols-2 gap-3 sm:grid-cols-4 sm:auto-rows-[160px];
+  }
+
+  .gallery-mosaic > * {
+    @apply aspect-square sm:aspect-auto;
+  }
+
+  .gallery-mosaic > *:nth-child(6n + 1) {
+    @apply sm:col-span-2 sm:row-span-2;
+  }
+
+  .gallery-mosaic > *:nth-child(6n + 4) {
+    @apply sm:col-span-2;
+  }
+
+  .gallery-mosaic > *:nth-child(6n + 5) {
+    @apply sm:col-span-2 sm:row-span-2;
+  }
+
+  .gallery-mosaic > *:nth-child(6n + 6) {
+    @apply sm:col-span-2 sm:row-span-2;
+  }
 }

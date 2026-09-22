@@ -1,43 +1,38 @@
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { NarrativeSection } from "@/components/NarrativeSection";
-import { FeatureSplit } from "@/components/FeatureSplit";
-import { SectionTitle } from "@/components/SectionTitle";
+import { StatStrip } from "@/components/StatStrip";
+import { ConceptStrip } from "@/components/ConceptStrip";
+import { NextTournamentFeature } from "@/components/NextTournamentFeature";
 import { Gallery } from "@/components/Gallery";
-import { TournamentCard } from "@/components/TournamentCard";
 import { createClient } from "@/lib/supabase/server";
 import type { Page, GalleryItem, Tournament } from "@/lib/types";
 
 const homeDefaults = {
-  hero_eyebrow: "El Junko · Venezuela",
-  hero_title: "Golf entre montañas",
-  hero_subtitle:
-    "Un club de golf entre las montañas de El Junquito, donde el juego se vive con calma y buena compañía.",
-  hero_cta: "Reservar",
-  hero_secondary_cta: "Descubrir El Junko",
-  intro_title: "Deja la ciudad atrás",
-  intro_text:
-    "Subir hasta El Junko es dejar el ruido abajo. El camino cambia, el aire cambia, y de pronto el único sonido es el del viento entre los árboles y el golpe limpio de una bola bien jugada.",
-  location_title: "En las montañas de El Junquito",
+  hero_eyebrow: "Junko Golf Club · El Junquito, Venezuela",
+  hero_title: "Tu próxima vuelta empieza aquí",
+  hero_subtitle: "Golf, montaña y ese clima que hace diferente cada ronda.",
+  hero_cta: "Reservar tu ronda",
+  hero_secondary_cta: "Descubre el Junko",
+  hero_caption: "Montaña · Tradición · Desde 1948",
+  intro_title: "¿Cuándo fue la última vez que jugaste una ronda así?",
+  intro_text: "Escápate de la ciudad. Toma tus palos. Ven al Junko.",
+  location_title: "Golf entre montañas",
   location_text:
     "El club está en El Junquito, estado Vargas, rodeado de montaña. Un entorno natural que pocos campos de golf pueden ofrecer, y que forma parte de la experiencia tanto como el propio juego.",
-  experience_title: "El campo",
   experience_text:
     "Un recorrido que aprovecha el terreno de montaña tal como es, sin forzarlo. Cada hoyo tiene su propio carácter, marcado por la vegetación y el desnivel natural del terreno.",
-  game_title: "El juego",
   game_text:
     "Aquí el golf se juega sin prisa. La altura, la vegetación y el clima de montaña hacen de cada ronda una experiencia distinta a la de un campo de tierras bajas.",
-  community_title: "Aquí el golf se comparte",
   community_text:
     "Más que un deporte, en El Junko el golf es una excusa para encontrarse. Socios de distintas generaciones que comparten el campo, la mesa y una misma pasión.",
-  history_title: "Desde 1948",
   history_text:
-    "Junko Golf Club abrió sus puertas en 1948 y desde entonces ha sido un punto de encuentro para quienes aman el golf y la montaña por igual. Más de siete décadas de historia siguen presentes en cada ronda.",
-  club_title: "El club",
-  club_text:
-    "Instalaciones y servicio pensados para socios que valoran la tradición tanto como la comodidad.",
-  cta_final_title: "Vívalo usted mismo",
-  cta_final_text: "Ninguna fotografía reemplaza estar ahí. Reserve su ronda y conozca El Junko en persona.",
+    "Junko Golf Club abrió sus puertas en 1948 y desde entonces ha sido un punto de encuentro para quienes aman el golf y la montaña por igual.",
+  membership_title: "Forma parte del Junko",
+  membership_text:
+    "No vengas solo a jugar. Ser socio de El Junko es tener un lugar propio en la montaña, para volver cuando quieras.",
+  cta_final_title: "Nos vemos en el Junko",
+  cta_final_text: "Tu próxima ronda está más cerca de lo que imaginas.",
 };
 
 async function getHomeContent(): Promise<Page["content"]> {
@@ -55,31 +50,23 @@ export default async function HomePage() {
   const supabase = await createClient();
   const content = await getHomeContent();
 
-  const [{ data: galleryData }, { data: peopleData }, { data: tournamentData }] =
-    await Promise.all([
-      supabase
-        .from("gallery")
-        .select("*")
-        .eq("category", "gallery")
-        .order("order", { ascending: true })
-        .limit(6),
-      supabase
-        .from("gallery")
-        .select("*")
-        .eq("category", "people")
-        .order("order", { ascending: true })
-        .limit(4),
-      supabase
-        .from("tournaments")
-        .select("*")
-        .eq("status", "upcoming")
-        .order("date", { ascending: true })
-        .limit(1)
-        .maybeSingle(),
-    ]);
+  const [{ data: galleryData }, { data: tournamentData }] = await Promise.all([
+    supabase
+      .from("gallery")
+      .select("*")
+      .eq("category", "gallery")
+      .order("order", { ascending: true })
+      .limit(6),
+    supabase
+      .from("tournaments")
+      .select("*")
+      .eq("status", "upcoming")
+      .order("date", { ascending: true })
+      .limit(1)
+      .maybeSingle(),
+  ]);
 
   const gallery = (galleryData ?? []) as GalleryItem[];
-  const people = (peopleData ?? []) as GalleryItem[];
   const tournament = tournamentData as Tournament | null;
 
   return (
@@ -90,129 +77,80 @@ export default async function HomePage() {
         subtitle={content.hero_subtitle}
         cta={content.hero_cta}
         secondaryCta={content.hero_secondary_cta}
+        caption={content.hero_caption}
       />
 
+      {/* Invitación */}
       <NarrativeSection
         id="descubrir"
-        eyebrow="Bienvenido"
+        eyebrow="¿Jugamos?"
         title={content.intro_title}
         text={content.intro_text}
-        align="left"
+        align="center"
+        cta={{ label: content.hero_cta, href: "/reservas" }}
       />
 
-      <NarrativeSection
-        eyebrow="Ubicación"
-        title={content.location_title}
-        text={content.location_text}
-        align="right"
-      />
+      {/* El Junko */}
+      <NarrativeSection eyebrow="El Junko" title={content.location_title} text={content.location_text} align="left" />
+      <div className="container-club -mt-6 pb-16 sm:-mt-10 sm:pb-24">
+        <StatStrip items={["Desde 1948", "Montaña", "Clima fresco", "Comunidad"]} />
+      </div>
 
-      <FeatureSplit
-        eyebrow="El recorrido"
-        title={content.experience_title}
-        text={content.experience_text}
-        imageLabel="El Campo"
-      />
-
-      <FeatureSplit
+      {/* Experiencia */}
+      <ConceptStrip
         eyebrow="La experiencia"
-        title={content.game_title}
-        text={content.game_text}
-        imageLabel="El Juego"
-        reverse
+        title="Esto es lo que vas a vivir"
+        concepts={[
+          { label: "Montaña", text: "El Junquito, entre niebla y montaña." },
+          { label: "El Campo", text: content.experience_text },
+          { label: "El Juego", text: content.game_text },
+          { label: "Historia", text: content.history_text },
+          {
+            label: "Torneos",
+            text: "Encuentros que reúnen a los socios del club, dentro y fuera del campo.",
+          },
+          { label: "Comunidad", text: content.community_text },
+        ]}
       />
 
+      {/* Galería */}
       <section className="relative py-16 sm:py-24">
-        <div className="absolute inset-0 bg-navy/60" aria-hidden />
-        <div className="container-club relative flex flex-col items-center gap-10 text-center">
-          <SectionTitle eyebrow="Comunidad" title={content.community_title} description={content.community_text} />
-          <Gallery items={people} emptyLabel="Personas del club" className="w-full max-w-3xl" />
+        <div className="absolute inset-0 bg-navy/50" aria-hidden />
+        <div className="container-club relative flex flex-col gap-10">
+          <div className="flex flex-col items-center gap-4 text-center">
+            <span className="eyebrow text-gold">Galería</span>
+            <h2 className="font-display text-3xl uppercase tracking-wide text-ivory sm:text-4xl">
+              Así se vive el Junko
+            </h2>
+            <div className="gold-rule" />
+          </div>
+          <Gallery items={gallery} editorial />
+          <Link href="/galeria" className="btn-outline mx-auto w-fit">
+            Ver toda la galería
+          </Link>
         </div>
       </section>
 
+      {/* Torneos */}
+      <NextTournamentFeature tournament={tournament} />
+
+      {/* Membresías */}
       <NarrativeSection
-        eyebrow="Historia"
-        title={content.history_title}
-        text={content.history_text}
-        align="left"
+        eyebrow="Membresías"
+        title={content.membership_title}
+        text={content.membership_text}
+        align="right"
+        cta={{ label: "Conoce las membresías", href: "/membresias" }}
       />
 
-      <section className="py-8 sm:py-12">
-        <div className="container-club grid gap-6 md:grid-cols-2">
-          <div className="glass-card flex flex-col items-center gap-6 p-8 text-center sm:p-12">
-            <span className="eyebrow text-gold">El Club</span>
-            <h2 className="font-display text-3xl uppercase tracking-wide sm:text-4xl">
-              {content.club_title}
-            </h2>
-            <div className="gold-rule" />
-            <p className="font-serif text-lg leading-relaxed text-ivory/80">
-              {content.club_text}
-            </p>
-            <Link href="/club" className="btn-outline w-fit">
-              Conocer el club
-            </Link>
-          </div>
-
-          <div className="glass-card flex flex-col items-center gap-6 p-8 text-center sm:p-12">
-            <span className="eyebrow text-gold">Membresías</span>
-            <h2 className="font-display text-3xl uppercase tracking-wide sm:text-4xl">
-              Formar parte del Junko
-            </h2>
-            <div className="gold-rule" />
-            <p className="font-serif text-lg leading-relaxed text-ivory/80">
-              Distintas modalidades de membresía, pensadas para socios individuales, familias y empresas.
-            </p>
-            <Link href="/membresias" className="btn-outline w-fit">
-              Ver membresías
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {tournament ? (
-        <section className="py-8 sm:py-12">
-          <div className="container-club">
-            <div className="glass-card flex flex-col items-center gap-8 p-8 sm:p-12">
-              <SectionTitle eyebrow="Agenda" title="Próximo en El Junko" />
-              <div className="w-full max-w-md">
-                <TournamentCard tournament={tournament} />
-              </div>
-              <Link href="/torneos" className="btn-outline w-fit">
-                Ver todos los torneos
-              </Link>
-            </div>
-          </div>
-        </section>
-      ) : null}
-
-      <section className="py-8 sm:py-12">
-        <div className="container-club">
-          <div className="glass-card flex flex-col items-center gap-8 p-8 sm:p-12">
-            <SectionTitle eyebrow="Galería" title="Un vistazo al club" />
-            <Gallery items={gallery} className="w-full" />
-            <Link href="/galeria" className="btn-outline w-fit">
-              Ver galería completa
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 sm:py-24">
-        <div className="container-club">
-          <div className="glass-card mx-auto flex max-w-2xl flex-col items-center gap-6 p-10 text-center sm:p-14">
-            <h2 className="font-display text-3xl uppercase tracking-wide sm:text-4xl">
-              {content.cta_final_title}
-            </h2>
-            <div className="gold-rule" />
-            <p className="max-w-xl font-serif text-lg text-ivory/80">
-              {content.cta_final_text}
-            </p>
-            <Link href="/reservas" className="btn-primary">
-              Reservar
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* CTA final */}
+      <NarrativeSection
+        eyebrow="Hasta pronto"
+        title={content.cta_final_title}
+        text={content.cta_final_text}
+        align="center"
+        cta={{ label: "Reservar mi ronda", href: "/reservas" }}
+      />
     </>
   );
 }

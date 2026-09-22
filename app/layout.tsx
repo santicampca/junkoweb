@@ -10,6 +10,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SiteBackground } from "@/components/SiteBackground";
+import { MobileReserveBar } from "@/components/MobileReserveBar";
 import { getSiteUrl } from "@/lib/site-url";
 
 const cinzel = Cinzel({
@@ -94,8 +95,9 @@ export default function RootLayout({
       <body>
         <SiteBackground />
         <Navbar />
-        <main>{children}</main>
+        <main className="pb-16 lg:pb-0">{children}</main>
         <Footer />
+        <MobileReserveBar />
       </body>
     </html>
   );

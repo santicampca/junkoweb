@@ -7,18 +7,9 @@ interface GalleryProps {
   items: GalleryItem[];
   emptyLabel?: string;
   className?: string;
-  /** Varied tile sizes instead of a uniform grid — used on the full gallery page. */
+  /** Magazine-style mosaic (see .gallery-mosaic) instead of a uniform grid. */
   editorial?: boolean;
 }
-
-// Repeats every 6 tiles; two tall/wide tiles per cycle keep the layout from
-// feeling like a uniform stock-photo grid.
-const editorialSpan = (index: number) => {
-  const i = index % 6;
-  if (i === 0) return "sm:col-span-2 sm:row-span-2";
-  if (i === 3) return "sm:row-span-2";
-  return "";
-};
 
 export function Gallery({ items, emptyLabel, className, editorial }: GalleryProps) {
   const slots = items.length > 0 ? items : Array.from({ length: 6 });
@@ -26,8 +17,7 @@ export function Gallery({ items, emptyLabel, className, editorial }: GalleryProp
   return (
     <div
       className={cx(
-        "grid grid-cols-2 gap-3 sm:grid-cols-3",
-        editorial && "sm:auto-rows-[140px]",
+        editorial ? "gallery-mosaic" : "grid grid-cols-2 gap-3 sm:grid-cols-3",
         className
       )}
     >
@@ -36,10 +26,7 @@ export function Gallery({ items, emptyLabel, className, editorial }: GalleryProp
         return (
           <div
             key={galleryItem?.id ?? index}
-            className={cx(
-              "relative overflow-hidden rounded-sm",
-              editorial ? cx("aspect-square sm:aspect-auto", editorialSpan(index)) : "aspect-square"
-            )}
+            className={cx("relative overflow-hidden rounded-sm", !editorial && "aspect-square")}
           >
             {galleryItem?.image ? (
               <Image
