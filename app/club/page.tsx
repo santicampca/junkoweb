@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SectionTitle } from "@/components/SectionTitle";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { createClient } from "@/lib/supabase/server";
@@ -7,7 +8,7 @@ import type { Page } from "@/lib/types";
 export const metadata: Metadata = {
   title: "El Club",
   description:
-    "Conozca la historia, las instalaciones y la filosofía de Junko Golf Club, un club de golf privado de montaña.",
+    "Conozca Junko Golf Club: historia desde 1948, instalaciones y el entorno de montaña de El Junquito, Vargas.",
 };
 
 export default async function ClubPage() {
@@ -34,7 +35,7 @@ export default async function ClubPage() {
       <section className="py-16 sm:py-24">
         <div className="container-club">
           <div className="glass-card mx-auto flex max-w-3xl flex-col items-center gap-8 p-8 text-center sm:p-12">
-            <SectionTitle eyebrow="Institucional" title="Nuestra tradición" />
+            <SectionTitle eyebrow="Desde 1948" title="Nuestra tradición" />
             <p className="max-w-3xl text-center font-serif text-lg leading-relaxed text-ivory/80">
               {content.text}
             </p>
@@ -43,11 +44,22 @@ export default async function ClubPage() {
       </section>
 
       <section className="grid gap-1 sm:grid-cols-3">
-        {["Recorrido", "Instalaciones", "Servicio"].map((label) => (
+        {["El Campo", "El Club", "La Montaña"].map((label) => (
           <div key={label} className="relative aspect-[4/5] w-full overflow-hidden">
             <ImagePlaceholder label={label} />
           </div>
         ))}
+      </section>
+
+      <section className="py-16 text-center sm:py-24">
+        <div className="container-club flex flex-col items-center gap-6">
+          <h2 className="font-display text-2xl uppercase tracking-wide text-ivory drop-shadow-lg sm:text-3xl">
+            Venga a conocerlo
+          </h2>
+          <Link href="/reservas" className="btn-primary">
+            Reservar
+          </Link>
+        </div>
       </section>
     </>
   );

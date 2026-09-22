@@ -9,9 +9,12 @@ const initialState: GalleryFormState = { status: "idle" };
 
 const categories = [
   { value: "hero", label: "Portada" },
-  { value: "gallery", label: "Recorrido" },
+  { value: "gallery", label: "El Campo" },
   { value: "club", label: "El Club" },
   { value: "tournaments", label: "Torneos" },
+  { value: "people", label: "Personas" },
+  { value: "mountain", label: "Montaña" },
+  { value: "moments", label: "Momentos" },
   { value: "memberships", label: "Membresías" },
 ];
 

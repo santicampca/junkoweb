@@ -6,7 +6,7 @@ import type { Page } from "@/lib/types";
 
 export const metadata: Metadata = {
   title: "Contacto",
-  description: "Póngase en contacto con Junko Golf Club.",
+  description: "Hablemos: escriba a Junko Golf Club para reservas, membresías o cualquier consulta.",
 };
 
 export default async function ContactPage() {
@@ -18,7 +18,7 @@ export default async function ContactPage() {
     .maybeSingle();
 
   const content = (data?.content as Page["content"]) ?? {
-    title: "Contacto",
+    title: "Hablemos",
     text: "",
     address: "Por confirmar",
     phone: "Por confirmar",
@@ -31,7 +31,7 @@ export default async function ContactPage() {
         <div className="glass-card flex flex-col gap-8 p-8 sm:p-12">
           <SectionTitle
             eyebrow="Contacto"
-            title={content.title}
+            title={content.title || "Hablemos"}
             description={content.text}
             align="left"
           />

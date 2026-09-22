@@ -50,15 +50,16 @@ const siteUrl = getSiteUrl();
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Junko Golf Club — Golf, montaña y tradición",
+    default: "Junko Golf Club — Golf entre montañas en El Junquito, Vargas",
     template: "%s | Junko Golf Club",
   },
   description:
-    "Junko Golf Club es un club de golf privado de montaña que combina naturaleza, tradición y un servicio de exclusividad discreta.",
+    "Junko Golf Club, fundado en 1948, es un club de golf en las montañas de El Junquito, estado Vargas. Reservas, membresías y torneos.",
   keywords: [
     "Junko Golf Club",
-    "club de golf",
-    "golf de montaña",
+    "club de golf El Junquito",
+    "golf Vargas Venezuela",
+    "campo de golf de montaña",
     "membresías de golf",
     "torneos de golf",
     "reservas de golf",
@@ -66,17 +67,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Junko Golf Club",
-    title: "Junko Golf Club — Golf, montaña y tradición",
+    title: "Junko Golf Club — Golf entre montañas en El Junquito, Vargas",
     description:
-      "Un club de golf privado de montaña que combina naturaleza, tradición y un servicio de exclusividad discreta.",
+      "Un club de golf de montaña en El Junquito, Vargas, con historia desde 1948.",
     url: siteUrl,
     locale: "es_ES",
   },
   twitter: {
     card: "summary_large_image",
     title: "Junko Golf Club",
-    description:
-      "Un club de golf privado de montaña que combina naturaleza, tradición y un servicio de exclusividad discreta.",
+    description: "Golf entre montañas en El Junquito, Vargas, desde 1948.",
   },
   robots: {
     index: true,

@@ -10,9 +10,12 @@ export const metadata: Metadata = {
 };
 
 const categories: { key: GalleryCategory; label: string }[] = [
+  { key: "gallery", label: "El Campo" },
   { key: "club", label: "El Club" },
-  { key: "gallery", label: "Recorrido" },
   { key: "tournaments", label: "Torneos" },
+  { key: "people", label: "Personas" },
+  { key: "mountain", label: "Montaña" },
+  { key: "moments", label: "Momentos" },
 ];
 
 export default async function GalleryPage() {
@@ -27,19 +30,21 @@ export default async function GalleryPage() {
 
   return (
     <section className="py-16 sm:py-24">
-      <div className="container-club flex flex-col gap-16">
+      <div className="container-club flex flex-col gap-20">
         <SectionTitle
           eyebrow="Galería"
-          title="Un vistazo al club"
-          description="Nuestra galería se irá completando con fotografía profesional del club, el recorrido y nuestros eventos."
+          title="El Junko en imágenes"
+          description="El campo, la montaña y la gente que le da vida al club, poco a poco, en fotografía real."
         />
 
         {categories.map(({ key, label }) => {
           const categoryItems = items.filter((item) => item.category === key);
           return (
             <div key={key} className="flex flex-col gap-8">
-              <h3 className="font-heading text-2xl text-ivory">{label}</h3>
-              <Gallery items={categoryItems} emptyLabel={label} />
+              <h3 className="font-display text-xl uppercase tracking-widest2 text-gold">
+                {label}
+              </h3>
+              <Gallery items={categoryItems} emptyLabel={label} editorial />
             </div>
           );
         })}
