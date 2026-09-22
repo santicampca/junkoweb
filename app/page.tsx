@@ -107,7 +107,11 @@ export default async function HomePage() {
         eyebrow="La experiencia"
         title="Esto es lo que vas a vivir"
         concepts={[
-          { label: "Montaña", text: "El Junquito, entre niebla y montaña." },
+          {
+            label: "Montaña",
+            text: "El Junquito, entre niebla y montaña.",
+            image: "/images/experience/montana.jpg",
+          },
           { label: "El Campo", text: content.experience_text },
           { label: "El Juego", text: content.game_text },
           { label: "Historia", text: content.history_text },
@@ -115,7 +119,11 @@ export default async function HomePage() {
             label: "Torneos",
             text: "Encuentros que reúnen a los socios del club, dentro y fuera del campo.",
           },
-          { label: "Comunidad", text: content.community_text },
+          {
+            label: "Comunidad",
+            text: content.community_text,
+            image: "/images/experience/comunidad.jpg",
+          },
         ]}
       />
 
