@@ -9,7 +9,7 @@ export default async function AdminDashboardPage() {
     { count: reservationsCount },
     { count: pendingCount },
     { count: tournamentsCount },
-    { count: galleryCount },
+    { count: newContactsCount },
     { data: recentReservations },
     { data: recentMessages },
   ] = await Promise.all([
@@ -19,7 +19,10 @@ export default async function AdminDashboardPage() {
       .select("*", { count: "exact", head: true })
       .eq("status", "pending"),
     supabase.from("tournaments").select("*", { count: "exact", head: true }),
-    supabase.from("gallery").select("*", { count: "exact", head: true }),
+    supabase
+      .from("contact_messages")
+      .select("*", { count: "exact", head: true })
+      .eq("status", "nuevo"),
     supabase
       .from("reservations")
       .select("*")
@@ -36,7 +39,7 @@ export default async function AdminDashboardPage() {
     { label: "Reservas totales", value: reservationsCount ?? 0 },
     { label: "Reservas pendientes", value: pendingCount ?? 0 },
     { label: "Torneos", value: tournamentsCount ?? 0 },
-    { label: "Imágenes en galería", value: galleryCount ?? 0 },
+    { label: "Contactos nuevos", value: newContactsCount ?? 0 },
   ];
 
   return (
@@ -86,7 +89,15 @@ export default async function AdminDashboardPage() {
         </div>
 
         <div className="border border-navy/10 bg-white p-6">
-          <h3 className="font-heading text-lg text-forest">Mensajes de contacto</h3>
+          <div className="flex items-center justify-between">
+            <h3 className="font-heading text-lg text-forest">Mensajes de contacto</h3>
+            <Link
+              href="/admin/dashboard/contactos"
+              className="font-sans text-xs uppercase tracking-widest2 text-gold-dark"
+            >
+              Ver todos
+            </Link>
+          </div>
           <ul className="mt-4 flex flex-col gap-3">
             {(recentMessages ?? []).map((m) => (
               <li key={m.id} className="flex flex-col border-b border-navy/5 pb-3 text-sm">

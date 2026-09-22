@@ -19,7 +19,7 @@ export function LoginForm() {
           type="email"
           required
           autoComplete="email"
-          className="border border-ivory/20 bg-transparent px-4 py-3 font-serif text-base text-ivory outline-none transition-colors focus:border-gold"
+          className="border border-ivory/20 bg-transparent px-4 py-3 font-serif text-base text-ivory transition-colors focus:border-gold"
         />
       </label>
 
@@ -32,7 +32,7 @@ export function LoginForm() {
           type="password"
           required
           autoComplete="current-password"
-          className="border border-ivory/20 bg-transparent px-4 py-3 font-serif text-base text-ivory outline-none transition-colors focus:border-gold"
+          className="border border-ivory/20 bg-transparent px-4 py-3 font-serif text-base text-ivory transition-colors focus:border-gold"
         />
       </label>
 

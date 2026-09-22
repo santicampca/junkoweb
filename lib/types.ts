@@ -2,12 +2,20 @@ import type { Database } from "@/lib/database.types";
 
 export type { Database } from "@/lib/database.types";
 
-export type ReservationStatus = "pending" | "confirmed" | "cancelled";
+export type ReservationStatus =
+  | "pending"
+  | "contacted"
+  | "confirmed"
+  | "rejected"
+  | "cancelled"
+  | "completed";
 
 export type Reservation = Omit<
   Database["public"]["Tables"]["reservations"]["Row"],
   "status"
 > & { status: ReservationStatus };
+
+export type ContactStatus = "nuevo" | "contactado" | "en_seguimiento" | "convertido" | "cerrado";
 
 export type TournamentStatus = "upcoming" | "past" | "cancelled";
 
@@ -37,8 +45,13 @@ export type Page = Omit<Database["public"]["Tables"]["pages"]["Row"], "content">
   content: Record<string, string>;
 };
 
-export type ContactMessage = Database["public"]["Tables"]["contact_messages"]["Row"];
+export type ContactMessage = Omit<
+  Database["public"]["Tables"]["contact_messages"]["Row"],
+  "status"
+> & { status: ContactStatus };
+
+export type ProfileRole = "admin" | "member" | "super_admin" | "recepcion";
 
 export type Profile = Omit<Database["public"]["Tables"]["profiles"]["Row"], "role"> & {
-  role: "admin" | "member";
+  role: ProfileRole;
 };

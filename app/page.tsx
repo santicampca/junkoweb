@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { NarrativeSection } from "@/components/NarrativeSection";
 import { FeatureSplit } from "@/components/FeatureSplit";
@@ -5,8 +6,13 @@ import { ExperienceShowcase } from "@/components/ExperienceShowcase";
 import { NextTournamentFeature } from "@/components/NextTournamentFeature";
 import { Gallery } from "@/components/Gallery";
 import { CtaLink } from "@/components/CtaLink";
+import { StructuredData } from "@/components/StructuredData";
 import { createClient } from "@/lib/supabase/server";
 import type { Page, GalleryItem, Tournament } from "@/lib/types";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const homeDefaults = {
   hero_eyebrow: "Junko Golf Club · El Junquito, Venezuela",
@@ -72,6 +78,7 @@ export default async function HomePage() {
 
   return (
     <>
+      <StructuredData />
       <Hero
         eyebrow={content.hero_eyebrow}
         title={content.hero_title}

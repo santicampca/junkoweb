@@ -46,9 +46,14 @@ export function FeatureSplit({
         className="container-club relative flex flex-col gap-12"
       >
         <div className="grid items-center gap-10 md:grid-cols-5">
-          <div className={cx("flex flex-col gap-5 md:col-span-2", reverse && "md:order-2")}>
+          <div
+            className={cx(
+              "flex min-w-0 flex-col gap-5 md:col-span-2",
+              reverse && "md:order-2"
+            )}
+          >
             {eyebrow ? <span className="eyebrow text-gold">{eyebrow}</span> : null}
-            <h2 className="font-display text-3xl uppercase tracking-wide text-ivory sm:text-4xl">
+            <h2 className="break-words font-display text-3xl uppercase tracking-wide text-ivory sm:text-4xl">
               {title}
             </h2>
             <div className="gold-rule" />

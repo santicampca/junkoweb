@@ -13,6 +13,13 @@ const links = [
   { href: "/contacto", label: "Contacto" },
 ];
 
+const legalLinks = [
+  { href: "/privacidad", label: "Privacidad" },
+  { href: "/cookies", label: "Cookies" },
+  { href: "/terminos", label: "Términos" },
+  { href: "/aviso-legal", label: "Aviso legal" },
+];
+
 export function Footer() {
   const pathname = usePathname();
   if (pathname?.startsWith("/admin")) return null;
@@ -61,9 +68,23 @@ export function Footer() {
       </div>
 
       <div className="border-t border-ivory/10 py-6">
-        <p className="container-club text-center font-sans text-xs uppercase tracking-widest2 text-ivory/40">
-          © {new Date().getFullYear()} Junko Golf Club. Todos los derechos reservados.
-        </p>
+        <div className="container-club flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
+          <p className="font-sans text-xs uppercase tracking-widest2 text-ivory/40">
+            © {new Date().getFullYear()} Junko Golf Club. Todos los derechos reservados.
+          </p>
+          <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            {legalLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="font-sans text-xs uppercase tracking-widest2 text-ivory/40 transition-colors hover:text-gold"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </footer>
   );

@@ -62,7 +62,30 @@ export async function updateSession(request: NextRequest) {
     return redirectToLogin();
   }
 
-  if (isLoginRoute && user) {
+  // A valid session alone isn't enough: a signed-in visitor whose profile
+  // role isn't "admin" (e.g. a self-registered account) must never reach
+  // the admin UI, even read-only — role is checked explicitly rather than
+  // inferred from "a session exists". Checked once and reused below so a
+  // non-admin session can't bounce forever between login and dashboard.
+  let isAdmin = false;
+  if (user) {
+    try {
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("role")
+        .eq("id", user.id)
+        .maybeSingle();
+      isAdmin = profile?.role === "admin" || profile?.role === "super_admin";
+    } catch (error) {
+      console.error("[middleware] Profile role check failed:", error);
+    }
+  }
+
+  if (!isLoginRoute && !isAdmin) {
+    return redirectToLogin();
+  }
+
+  if (isLoginRoute && isAdmin) {
     const url = request.nextUrl.clone();
     url.pathname = "/admin/dashboard";
     return NextResponse.redirect(url);

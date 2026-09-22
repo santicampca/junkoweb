@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { AdminTable } from "@/components/admin/AdminTable";
+import { AdminEmptyState } from "@/components/admin/AdminStates";
+import { ConfirmSubmitButton } from "@/components/admin/ConfirmSubmitButton";
 import { createClient } from "@/lib/supabase/server";
 import { formatDate } from "@/lib/utils";
 import { deleteTournament, toggleFeatured } from "@/lib/actions/tournaments";
@@ -61,12 +63,12 @@ export default async function AdminTournamentsPage() {
                   await deleteTournament(t.id);
                 }}
               >
-                <button
-                  type="submit"
+                <ConfirmSubmitButton
+                  confirmMessage={`¿Eliminar el torneo "${t.title}"? Esta acción no se puede deshacer.`}
                   className="font-sans text-xs uppercase tracking-widest2 text-red-700 hover:underline"
                 >
                   Eliminar
-                </button>
+                </ConfirmSubmitButton>
               </form>
             </td>
           </tr>
@@ -74,7 +76,7 @@ export default async function AdminTournamentsPage() {
       </AdminTable>
 
       {(tournaments ?? []).length === 0 ? (
-        <p className="font-sans text-sm text-navy/40">Aún no hay torneos creados.</p>
+        <AdminEmptyState message="Aún no hay torneos creados." />
       ) : null}
     </div>
   );

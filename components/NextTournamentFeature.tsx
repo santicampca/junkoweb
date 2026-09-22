@@ -43,11 +43,11 @@ export function NextTournamentFeature({ tournament }: NextTournamentFeatureProps
           )}
         </div>
 
-        <div className="flex flex-col gap-5 md:col-span-2">
+        <div className="flex min-w-0 flex-col gap-5 md:col-span-2">
           <span className="eyebrow text-gold">El próximo tee time</span>
           {tournament ? (
             <>
-              <h2 className="font-display text-3xl uppercase tracking-wide text-ivory sm:text-4xl">
+              <h2 className="break-words font-display text-3xl uppercase tracking-wide text-ivory sm:text-4xl">
                 {tournament.title}
               </h2>
               <div className="gold-rule" />
@@ -65,7 +65,7 @@ export function NextTournamentFeature({ tournament }: NextTournamentFeatureProps
             </>
           ) : (
             <>
-              <h2 className="font-display text-3xl uppercase tracking-wide text-ivory sm:text-4xl">
+              <h2 className="break-words font-display text-3xl uppercase tracking-wide text-ivory sm:text-4xl">
                 Próximamente en El Junko
               </h2>
               <div className="gold-rule" />
