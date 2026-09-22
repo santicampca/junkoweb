@@ -26,6 +26,7 @@ export default async function TournamentsPage() {
     <section className="py-16 sm:py-24">
       <div className="container-club flex flex-col gap-16">
         <SectionTitle
+          as="h1"
           eyebrow="Calendario"
           title="Torneos en El Junko"
           description="Nuestro calendario de competencias, y los resultados de ediciones anteriores."

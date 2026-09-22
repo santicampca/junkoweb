@@ -36,4 +36,4 @@ export function AdminField({
 }
 
 export const adminInputClass =
-  "border border-navy/15 bg-transparent px-3 py-2 font-sans text-sm text-navy outline-none transition-colors focus:border-gold";
+  "border border-navy/15 bg-transparent px-3 py-2 font-sans text-sm text-navy transition-colors focus:border-gold";

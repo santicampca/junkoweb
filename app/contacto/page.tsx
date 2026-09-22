@@ -31,6 +31,7 @@ export default async function ContactPage() {
       <div className="container-club grid gap-8 md:grid-cols-2">
         <div className="glass-card flex flex-col gap-8 p-8 sm:p-12">
           <SectionTitle
+            as="h1"
             eyebrow="Contacto"
             title={content.title || "Hablemos"}
             description={content.text}

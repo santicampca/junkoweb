@@ -20,7 +20,7 @@ export function LegalPageLayout({
   return (
     <section className="py-16 sm:py-24">
       <div className="container-club flex flex-col gap-10">
-        <SectionTitle eyebrow={eyebrow} title={title} align="left" />
+        <SectionTitle as="h1" eyebrow={eyebrow} title={title} align="left" />
 
         <div className="glass-card flex flex-col gap-6 p-8 font-serif text-base leading-relaxed text-ivory/80 sm:p-12">
           <p className="font-sans text-xs uppercase tracking-widest2 text-ivory/40">

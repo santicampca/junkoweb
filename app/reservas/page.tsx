@@ -24,6 +24,7 @@ export default async function ReservationsPage() {
     <section className="py-16 sm:py-24">
       <div className="container-club flex flex-col items-center gap-12">
         <SectionTitle
+          as="h1"
           eyebrow="Reservas"
           title="Reserve su ronda"
           description="Complete el siguiente formulario y le confirmamos por WhatsApp a la brevedad."

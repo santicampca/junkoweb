@@ -71,7 +71,7 @@
   }
 
   .glass-input {
-    @apply rounded-md border border-ivory/20 bg-navy/50 px-4 py-3 font-serif text-base text-ivory outline-none transition-colors placeholder:text-ivory/40 focus:border-gold;
+    @apply rounded-md border border-ivory/20 bg-navy/50 px-4 py-3 font-serif text-base text-ivory transition-colors placeholder:text-ivory/40 focus:border-gold;
   }
 
   /*
