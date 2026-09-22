@@ -23,16 +23,19 @@ export default async function AdminReservationsPage() {
       </div>
 
       <AdminTable
-        headers={["Nombre", "Contacto", "Fecha", "Jugadores", "Notas", "Estado", "Acciones"]}
+        headers={["Nombre", "Contacto", "Fecha", "Hora", "Jugadores", "Notas", "Estado", "Acciones"]}
       >
         {(reservations ?? []).map((r) => (
           <tr key={r.id}>
             <td className="px-4 py-3 font-sans text-sm text-navy">{r.name}</td>
             <td className="px-4 py-3 font-sans text-xs text-navy/60">
-              <p>{r.email}</p>
               {r.phone ? <p>{r.phone}</p> : null}
+              {r.email ? <p>{r.email}</p> : null}
             </td>
             <td className="px-4 py-3 font-sans text-sm text-navy/70">{formatDate(r.date)}</td>
+            <td className="px-4 py-3 font-sans text-sm text-navy/70">
+              {r.preferred_time ?? "—"}
+            </td>
             <td className="px-4 py-3 font-sans text-sm text-navy/70">{r.players}</td>
             <td className="max-w-[200px] px-4 py-3 font-sans text-xs text-navy/50">
               {r.notes ?? "—"}
