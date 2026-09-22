@@ -66,7 +66,7 @@ export function Navbar() {
         </nav>
 
         <div className="hidden lg:block">
-          <Link href="/reservas" className="btn-primary shadow-elegant">
+          <Link href="/reservas" className="btn-primary">
             Reservar
           </Link>
         </div>

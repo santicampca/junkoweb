@@ -1,10 +1,10 @@
-import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { NarrativeSection } from "@/components/NarrativeSection";
-import { StatStrip } from "@/components/StatStrip";
-import { ConceptStrip } from "@/components/ConceptStrip";
+import { FeatureSplit } from "@/components/FeatureSplit";
+import { ExperienceShowcase } from "@/components/ExperienceShowcase";
 import { NextTournamentFeature } from "@/components/NextTournamentFeature";
 import { Gallery } from "@/components/Gallery";
+import { CtaLink } from "@/components/CtaLink";
 import { createClient } from "@/lib/supabase/server";
 import type { Page, GalleryItem, Tournament } from "@/lib/types";
 
@@ -13,6 +13,7 @@ const homeDefaults = {
   hero_title: "Tu próxima vuelta empieza aquí",
   hero_subtitle: "Golf, montaña y ese clima que hace diferente cada ronda.",
   hero_cta: "Reservar tu ronda",
+  hero_cta_microcopy: "Ven a jugar al Junko.",
   hero_secondary_cta: "Descubre el Junko",
   hero_caption: "Montaña · Tradición · Desde 1948",
   intro_title: "¿Cuándo fue la última vez que jugaste una ronda así?",
@@ -76,6 +77,7 @@ export default async function HomePage() {
         title={content.hero_title}
         subtitle={content.hero_subtitle}
         cta={content.hero_cta}
+        ctaMicrocopy={content.hero_cta_microcopy}
         secondaryCta={content.hero_secondary_cta}
         caption={content.hero_caption}
       />
@@ -90,14 +92,18 @@ export default async function HomePage() {
         cta={{ label: content.hero_cta, href: "/reservas" }}
       />
 
-      {/* El Junko */}
-      <NarrativeSection eyebrow="El Junko" title={content.location_title} text={content.location_text} align="left" />
-      <div className="container-club -mt-6 pb-16 sm:-mt-10 sm:pb-24">
-        <StatStrip items={["Desde 1948", "Montaña", "Clima fresco", "Comunidad"]} />
-      </div>
+      {/* El Junko — imagen grande + texto + CTA + datos */}
+      <FeatureSplit
+        eyebrow="El Junko"
+        title={content.location_title}
+        text={content.location_text}
+        imageLabel="El Junko"
+        cta={{ label: "Conoce el club", href: "/club" }}
+        stats={["Desde 1948", "Montaña", "Clima fresco", "Comunidad"]}
+      />
 
-      {/* Experiencia */}
-      <ConceptStrip
+      {/* Experiencia — imagen que cambia según el concepto seleccionado */}
+      <ExperienceShowcase
         eyebrow="La experiencia"
         title="Esto es lo que vas a vivir"
         concepts={[
@@ -125,21 +131,22 @@ export default async function HomePage() {
             <div className="gold-rule" />
           </div>
           <Gallery items={gallery} editorial />
-          <Link href="/galeria" className="btn-outline mx-auto w-fit">
+          <CtaLink href="/galeria" variant="outline" className="mx-auto w-fit">
             Ver toda la galería
-          </Link>
+          </CtaLink>
         </div>
       </section>
 
       {/* Torneos */}
       <NextTournamentFeature tournament={tournament} />
 
-      {/* Membresías */}
-      <NarrativeSection
+      {/* Membresías — imagen + texto + CTA */}
+      <FeatureSplit
         eyebrow="Membresías"
         title={content.membership_title}
         text={content.membership_text}
-        align="right"
+        imageLabel="Membresías"
+        reverse
         cta={{ label: "Conoce las membresías", href: "/membresias" }}
       />
 

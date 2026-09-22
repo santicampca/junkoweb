@@ -26,11 +26,11 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-sm border border-gold bg-gold px-8 py-3 font-sans text-sm uppercase tracking-widest2 text-navy transition-colors duration-300 hover:bg-transparent hover:text-gold;
+    @apply inline-flex items-center justify-center gap-3 rounded-sm border border-gold bg-gold px-9 py-3.5 font-sans text-sm uppercase tracking-widest2 text-navy shadow-elegant transition-all duration-300 hover:bg-transparent hover:text-gold;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-sm border border-ivory/40 px-8 py-3 font-sans text-sm uppercase tracking-widest2 text-ivory transition-colors duration-300 hover:border-gold hover:text-gold;
+    @apply inline-flex items-center justify-center gap-3 rounded-sm border border-ivory/40 px-8 py-3 font-sans text-sm uppercase tracking-widest2 text-ivory transition-colors duration-300 hover:border-gold hover:text-gold;
   }
 
   .btn-outline-dark {
@@ -73,12 +73,12 @@
     @apply sm:col-span-2 sm:row-span-2;
   }
 
-  .gallery-mosaic > *:nth-child(6n + 4) {
-    @apply sm:col-span-2;
+  .gallery-mosaic > *:nth-child(6n + 3) {
+    @apply sm:row-span-2;
   }
 
-  .gallery-mosaic > *:nth-child(6n + 5) {
-    @apply sm:col-span-2 sm:row-span-2;
+  .gallery-mosaic > *:nth-child(6n + 4) {
+    @apply sm:col-span-2;
   }
 
   .gallery-mosaic > *:nth-child(6n + 6) {

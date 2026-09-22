@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
+import { CtaLink } from "@/components/CtaLink";
 import { formatDate } from "@/lib/utils";
 import type { Tournament } from "@/lib/types";
 
@@ -26,15 +26,15 @@ export function NextTournamentFeature({ tournament }: NextTournamentFeatureProps
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="container-club relative grid items-center gap-10 md:grid-cols-2"
+        className="container-club relative grid items-center gap-10 md:grid-cols-5"
       >
-        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm">
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm md:col-span-3">
           {tournament?.image ? (
             <Image
               src={tournament.image}
               alt={tournament.title}
               fill
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-width: 768px) 100vw, 60vw"
               className="object-cover"
             />
           ) : (
@@ -42,7 +42,7 @@ export function NextTournamentFeature({ tournament }: NextTournamentFeatureProps
           )}
         </div>
 
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 md:col-span-2">
           <span className="eyebrow text-gold">El próximo tee time</span>
           {tournament ? (
             <>
@@ -58,9 +58,9 @@ export function NextTournamentFeature({ tournament }: NextTournamentFeatureProps
                   {tournament.description}
                 </p>
               ) : null}
-              <Link href="/torneos" className="btn-outline w-fit">
+              <CtaLink href="/torneos" variant="outline" className="w-fit">
                 Ver torneos
-              </Link>
+              </CtaLink>
             </>
           ) : (
             <>
@@ -72,9 +72,9 @@ export function NextTournamentFeature({ tournament }: NextTournamentFeatureProps
                 Estamos preparando el próximo torneo. Mientras tanto, el campo sigue abierto para
                 su ronda.
               </p>
-              <Link href="/reservas" className="btn-outline w-fit">
+              <CtaLink href="/reservas" variant="outline" className="w-fit">
                 Reservar una ronda
-              </Link>
+              </CtaLink>
             </>
           )}
         </div>

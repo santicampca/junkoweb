@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { CtaLink } from "@/components/CtaLink";
 
 interface HeroProps {
   eyebrow: string;
   title: string;
   subtitle: string;
   cta: string;
+  ctaMicrocopy?: string;
   secondaryCta: string;
   secondaryHref?: string;
   caption?: string;
@@ -26,6 +28,7 @@ export function Hero({
   title,
   subtitle,
   cta,
+  ctaMicrocopy,
   secondaryCta,
   secondaryHref = "#descubrir",
   caption,
@@ -50,14 +53,32 @@ export function Hero({
         <p className="max-w-xl font-serif text-xl italic leading-relaxed text-ivory/85 drop-shadow-sm">
           {subtitle}
         </p>
-        <div className="mt-4 flex flex-col gap-4 sm:flex-row">
-          <Link href="/reservas" className="btn-primary">
-            {cta}
-          </Link>
-          <Link href={secondaryHref} className="btn-outline">
-            {secondaryCta}
-          </Link>
+
+        <div className="mt-6 flex flex-col items-center gap-4">
+          <div className="flex flex-col items-center gap-5 sm:flex-row sm:gap-8">
+            <CtaLink href="/reservas" size="lg">
+              {cta}
+            </CtaLink>
+            <Link
+              href={secondaryHref}
+              className="group inline-flex items-center gap-2 font-sans text-sm uppercase tracking-widest2 text-ivory/85 underline decoration-ivory/30 underline-offset-4 drop-shadow-sm transition-colors hover:text-gold hover:decoration-gold"
+            >
+              {secondaryCta}
+              <span
+                aria-hidden
+                className="inline-block transition-transform duration-300 group-hover:translate-x-1"
+              >
+                →
+              </span>
+            </Link>
+          </div>
+          {ctaMicrocopy ? (
+            <span className="font-serif text-base italic text-ivory/70 drop-shadow-sm">
+              {ctaMicrocopy}
+            </span>
+          ) : null}
         </div>
+
         {caption ? (
           <span className="mt-2 font-sans text-[11px] uppercase tracking-widest2 text-ivory/60 drop-shadow-sm">
             {caption}
