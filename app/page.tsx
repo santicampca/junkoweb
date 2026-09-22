@@ -61,6 +61,7 @@ export default async function HomePage() {
         title={content.hero_title}
         subtitle={content.hero_subtitle}
         cta={content.hero_cta}
+        image="/images/hero/fairway.png"
       />
 
       <section className="container-club flex flex-col items-center gap-8 py-24 sm:py-32">

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -32,21 +33,22 @@ export function Navbar() {
   return (
     <header
       className={cx(
-        "sticky top-0 z-50 w-full transition-colors duration-500",
-        scrolled || open
-          ? "bg-navy/95 backdrop-blur shadow-elegant"
-          : "bg-transparent"
+        "sticky top-0 z-50 w-full bg-navy transition-shadow duration-500",
+        (scrolled || open) && "shadow-elegant"
       )}
     >
       <div className="container-club flex h-20 items-center justify-between">
         <Link
           href="/"
-          className="font-display text-lg uppercase tracking-widest2 text-ivory"
+          className="flex shrink-0 items-center gap-2 font-display text-lg uppercase tracking-widest2 text-ivory"
         >
-          Junko <span className="text-gold">Golf Club</span>
+          <Image src="/brand/logo.png" alt="Junko Golf Club" width={36} height={36} className="h-9 w-9 shrink-0" />
+          <span className="whitespace-nowrap">
+            Junko <span className="text-gold">Golf Club</span>
+          </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-5 xl:gap-6 lg:flex">
           {links.map((link) => (
             <Link
               key={link.href}

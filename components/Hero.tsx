@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
@@ -8,13 +9,25 @@ interface HeroProps {
   title: string;
   subtitle: string;
   cta: string;
+  image?: string;
 }
 
-export function Hero({ title, subtitle, cta }: HeroProps) {
+export function Hero({ title, subtitle, cta, image }: HeroProps) {
   return (
     <section className="relative flex h-[92vh] min-h-[640px] w-full items-center justify-center overflow-hidden bg-navy">
       <div className="absolute inset-0">
-        <ImagePlaceholder label="Fotografía del recorrido — próximamente" />
+        {image ? (
+          <Image
+            src={image}
+            alt="Recorrido de Junko Golf Club"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+        ) : (
+          <ImagePlaceholder label="Fotografía del recorrido — próximamente" />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-navy/30" />
       </div>
 

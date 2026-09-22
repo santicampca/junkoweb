@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -20,9 +21,12 @@ export function Footer() {
     <footer className="border-t border-gold/20 bg-navy text-ivory">
       <div className="container-club grid gap-12 py-16 md:grid-cols-3">
         <div>
-          <p className="font-display text-lg uppercase tracking-widest2">
-            Junko <span className="text-gold">Golf Club</span>
-          </p>
+          <div className="flex items-center gap-3">
+            <Image src="/brand/logo.png" alt="Junko Golf Club" width={36} height={36} className="h-9 w-9" />
+            <p className="font-display text-lg uppercase tracking-widest2">
+              Junko <span className="text-gold">Golf Club</span>
+            </p>
+          </div>
           <p className="mt-4 max-w-xs font-serif text-sm leading-relaxed text-ivory/60">
             Golf, montaña y tradición en un entorno de exclusividad discreta.
           </p>
