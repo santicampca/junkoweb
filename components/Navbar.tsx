@@ -33,8 +33,10 @@ export function Navbar() {
   return (
     <header
       className={cx(
-        "sticky top-0 z-50 w-full border-b border-ivory/10 bg-navy/55 backdrop-blur-md transition-shadow duration-500",
-        (scrolled || open) && "shadow-elegant"
+        "sticky top-0 z-50 w-full border-b transition-colors duration-500",
+        scrolled || open
+          ? "border-ivory/10 bg-navy/85 shadow-elegant backdrop-blur-md"
+          : "border-transparent bg-gradient-to-b from-navy/45 to-transparent"
       )}
     >
       <div className="container-club flex h-20 items-center justify-between">
@@ -65,7 +67,7 @@ export function Navbar() {
 
         <div className="hidden lg:block">
           <Link href="/reservas" className="btn-primary">
-            Reserva ya
+            Reservar
           </Link>
         </div>
 
@@ -113,7 +115,7 @@ export function Navbar() {
               onClick={() => setOpen(false)}
               className="btn-primary mt-2 w-full"
             >
-              Reserva ya
+              Reservar
             </Link>
           </nav>
         </div>

@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
+import { CtaLink } from "@/components/CtaLink";
 import { cx } from "@/lib/utils";
 
 interface NarrativeSectionProps {
@@ -62,9 +62,9 @@ export function NarrativeSection({
             {text}
           </p>
           {cta ? (
-            <Link href={cta.href} className="btn-outline w-fit">
+            <CtaLink href={cta.href} variant="outline" className="w-fit">
               {cta.label}
-            </Link>
+            </CtaLink>
           ) : null}
         </div>
       </motion.div>

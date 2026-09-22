@@ -1,18 +1,35 @@
 import type { Membership } from "@/lib/types";
 
-export function MembershipCard({ membership }: { membership: Membership }) {
+/**
+ * An editorial list row, not a pricing card — no box, no border of its
+ * own. Meant to sit inside a `divide-y` list so membership types read
+ * like a considered list rather than a SaaS plan comparison.
+ */
+export function MembershipCard({
+  membership,
+  index,
+}: {
+  membership: Membership;
+  index?: number;
+}) {
   return (
-    <div className="glass-card flex h-full flex-col gap-4 p-8 text-center transition-colors hover:border-gold/50">
-      <span className="mx-auto h-px w-10 bg-gold" />
-      <h3 className="font-heading text-2xl text-ivory">{membership.title}</h3>
-      {membership.description ? (
-        <p className="font-serif text-base leading-relaxed text-ivory/75">
-          {membership.description}
-        </p>
+    <div className="flex flex-col gap-3 py-7 sm:flex-row sm:items-baseline sm:gap-8">
+      {typeof index === "number" ? (
+        <span className="font-display text-sm text-gold sm:w-10 sm:shrink-0">
+          {String(index + 1).padStart(2, "0")}
+        </span>
       ) : null}
-      <p className="mt-auto pt-4 font-sans text-xs uppercase tracking-widest2 text-gold">
-        Información y tarifas a solicitud
-      </p>
+      <div className="flex flex-1 flex-col gap-2">
+        <h3 className="font-heading text-2xl text-ivory">{membership.title}</h3>
+        {membership.description ? (
+          <p className="font-serif text-base leading-relaxed text-ivory/75">
+            {membership.description}
+          </p>
+        ) : null}
+      </div>
+      <span className="font-sans text-xs uppercase tracking-widest2 text-ivory/50 sm:shrink-0">
+        Información a solicitud
+      </span>
     </div>
   );
 }
