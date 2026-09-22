@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { cx } from "@/lib/utils";
@@ -8,6 +9,8 @@ import { cx } from "@/lib/utils";
 interface Concept {
   label: string;
   text: string;
+  /** Real photo path, e.g. "/images/experience/montana.jpg". Falls back to an elegant placeholder when absent. */
+  image?: string;
 }
 
 interface ExperienceShowcaseProps {
@@ -52,7 +55,17 @@ export function ExperienceShowcase({ eyebrow, title, concepts }: ExperienceShowc
                 transition={{ duration: 0.4, ease: "easeOut" }}
                 className="absolute inset-0"
               >
-                <ImagePlaceholder label={current.label} />
+                {current.image ? (
+                  <Image
+                    src={current.image}
+                    alt={current.label}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
+                  />
+                ) : (
+                  <ImagePlaceholder label={current.label} />
+                )}
               </motion.div>
             </AnimatePresence>
           </div>
@@ -98,7 +111,17 @@ export function ExperienceShowcase({ eyebrow, title, concepts }: ExperienceShowc
           {concepts.map((concept, index) => (
             <div key={concept.label} className="flex flex-col gap-4">
               <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm">
-                <ImagePlaceholder label={concept.label} />
+                {concept.image ? (
+                  <Image
+                    src={concept.image}
+                    alt={concept.label}
+                    fill
+                    sizes="100vw"
+                    className="object-cover"
+                  />
+                ) : (
+                  <ImagePlaceholder label={concept.label} />
+                )}
               </div>
               <div className="flex flex-col gap-2">
                 <span className="flex items-baseline gap-3">

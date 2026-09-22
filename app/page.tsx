@@ -107,7 +107,11 @@ export default async function HomePage() {
         eyebrow="La experiencia"
         title="Esto es lo que vas a vivir"
         concepts={[
-          { label: "Montaña", text: "El Junquito, entre niebla y montaña." },
+          {
+            label: "Montaña",
+            text: "El Junquito, entre niebla y montaña.",
+            image: "/images/experience/montana.jpg",
+          },
           { label: "El Campo", text: content.experience_text },
           { label: "El Juego", text: content.game_text },
           { label: "Historia", text: content.history_text },
