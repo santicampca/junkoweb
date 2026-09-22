@@ -9,6 +9,7 @@ import {
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { SiteBackground } from "@/components/SiteBackground";
 import { getSiteUrl } from "@/lib/site-url";
 
 const cinzel = Cinzel({
@@ -91,6 +92,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${cinzel.variable} ${cormorant.variable} ${playfair.variable} ${inter.variable} ${jakarta.variable}`}>
       <body>
+        <SiteBackground />
         <Navbar />
         <main>{children}</main>
         <Footer />

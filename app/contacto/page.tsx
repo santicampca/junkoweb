@@ -26,7 +26,7 @@ export default async function ContactPage() {
   };
 
   return (
-    <section className="bg-ivory py-24 sm:py-32">
+    <section className="panel-ivory py-24 sm:py-32">
       <div className="container-club grid gap-16 md:grid-cols-2">
         <div className="flex flex-col gap-8">
           <SectionTitle

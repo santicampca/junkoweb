@@ -26,22 +26,24 @@ export default async function GalleryPage() {
   const items = (data ?? []) as GalleryItem[];
 
   return (
-    <section className="container-club flex flex-col gap-20 py-24 sm:py-32">
-      <SectionTitle
-        eyebrow="Galería"
-        title="Un vistazo al club"
-        description="Nuestra galería se irá completando con fotografía profesional del club, el recorrido y nuestros eventos."
-      />
+    <section className="panel-ivory py-24 sm:py-32">
+      <div className="container-club flex flex-col gap-20">
+        <SectionTitle
+          eyebrow="Galería"
+          title="Un vistazo al club"
+          description="Nuestra galería se irá completando con fotografía profesional del club, el recorrido y nuestros eventos."
+        />
 
-      {categories.map(({ key, label }) => {
-        const categoryItems = items.filter((item) => item.category === key);
-        return (
-          <div key={key} className="flex flex-col gap-8">
-            <h3 className="font-heading text-2xl text-forest">{label}</h3>
-            <Gallery items={categoryItems} emptyLabel={label} />
-          </div>
-        );
-      })}
+        {categories.map(({ key, label }) => {
+          const categoryItems = items.filter((item) => item.category === key);
+          return (
+            <div key={key} className="flex flex-col gap-8">
+              <h3 className="font-heading text-2xl text-forest">{label}</h3>
+              <Gallery items={categoryItems} emptyLabel={label} />
+            </div>
+          );
+        })}
+      </div>
     </section>
   );
 }

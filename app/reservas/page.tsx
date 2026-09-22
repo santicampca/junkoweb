@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function ReservationsPage() {
   return (
-    <section className="bg-ivory py-24 sm:py-32">
+    <section className="panel-ivory py-24 sm:py-32">
       <div className="container-club flex flex-col items-center gap-12">
         <SectionTitle
           eyebrow="Reservas"

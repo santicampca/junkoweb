@@ -40,4 +40,17 @@
   .container-club {
     @apply mx-auto w-full max-w-content px-6 md:px-10;
   }
+
+  /* Translucent section bands over the fixed site background photo. */
+  .panel-ivory {
+    @apply bg-ivory/80 backdrop-blur-sm;
+  }
+
+  .panel-navy {
+    @apply bg-navy/70 backdrop-blur-sm;
+  }
+
+  .panel-forest {
+    @apply bg-forest/70 backdrop-blur-sm;
+  }
 }

@@ -25,19 +25,19 @@ export default async function ClubPage() {
 
   return (
     <>
-      <section className="relative flex h-[60vh] min-h-[420px] items-center justify-center overflow-hidden bg-navy">
-        <ImagePlaceholder label="El Club" />
-        <div className="absolute inset-0 bg-navy/50" />
-        <h1 className="relative z-10 font-display text-4xl uppercase tracking-wide text-ivory sm:text-5xl">
+      <section className="flex h-[45vh] min-h-[320px] items-center justify-center text-center">
+        <h1 className="font-display text-4xl uppercase tracking-wide text-ivory sm:text-5xl">
           {content.title}
         </h1>
       </section>
 
-      <section className="container-club flex flex-col items-center gap-8 py-24 sm:py-32">
-        <SectionTitle eyebrow="Institucional" title="Nuestra tradición" />
-        <p className="max-w-3xl text-center font-serif text-lg leading-relaxed text-navy/70">
-          {content.text}
-        </p>
+      <section className="panel-ivory py-24 sm:py-32">
+        <div className="container-club flex flex-col items-center gap-8">
+          <SectionTitle eyebrow="Institucional" title="Nuestra tradición" />
+          <p className="max-w-3xl text-center font-serif text-lg leading-relaxed text-navy/70">
+            {content.text}
+          </p>
+        </div>
       </section>
 
       <section className="grid gap-1 sm:grid-cols-3">

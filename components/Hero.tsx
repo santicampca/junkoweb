@@ -1,36 +1,22 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 
 interface HeroProps {
   title: string;
   subtitle: string;
   cta: string;
-  image?: string;
 }
 
-export function Hero({ title, subtitle, cta, image }: HeroProps) {
+/**
+ * No longer renders its own background photo — the site-wide fixed
+ * background (see SiteBackground) shows through directly behind this
+ * section on every page, home included.
+ */
+export function Hero({ title, subtitle, cta }: HeroProps) {
   return (
-    <section className="relative flex h-[92vh] min-h-[640px] w-full items-center justify-center overflow-hidden bg-navy">
-      <div className="absolute inset-0">
-        {image ? (
-          <Image
-            src={image}
-            alt="Recorrido de Junko Golf Club"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
-        ) : (
-          <ImagePlaceholder label="Fotografía del recorrido — próximamente" />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-navy/30" />
-      </div>
-
+    <section className="relative flex h-[92vh] min-h-[640px] w-full items-center justify-center overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
