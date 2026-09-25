@@ -8,6 +8,7 @@ import { Gallery } from "@/components/Gallery";
 import { CtaLink } from "@/components/CtaLink";
 import { StructuredData } from "@/components/StructuredData";
 import { createClient } from "@/lib/supabase/server";
+import { rotatingSlice } from "@/lib/utils";
 import type { Page, GalleryItem, Tournament } from "@/lib/types";
 
 export const metadata: Metadata = {
@@ -63,7 +64,7 @@ export default async function HomePage() {
       .select("*")
       .eq("category", "gallery")
       .order("order", { ascending: true })
-      .limit(6),
+      .limit(100),
     supabase
       .from("tournaments")
       .select("*")
@@ -73,7 +74,7 @@ export default async function HomePage() {
       .maybeSingle(),
   ]);
 
-  const gallery = (galleryData ?? []) as GalleryItem[];
+  const gallery = rotatingSlice((galleryData ?? []) as GalleryItem[], 3);
   const tournament = tournamentData as Tournament | null;
 
   return (
